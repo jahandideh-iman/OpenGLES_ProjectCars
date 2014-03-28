@@ -1,7 +1,9 @@
 #pragma once
-#include "GameObject.h"
-#include "PlayerCar.h"
+
 #include "GameObjectFactory.h"
+#include "PlayerCar.h"
+#include "SideBlocker.h"
+
 
 class GameMain: public GameObject
 {
@@ -10,8 +12,11 @@ public:
 
 	void Update(float dt) override;
 	void OnCreation() override;
+
 private:
 	PlayerCar* playerCar;
+
+	
 
 };
 

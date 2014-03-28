@@ -19,10 +19,6 @@ void UpdateHelper(ESContext* contex, float dt)
 	OpenGLRenderer::GetRenderer()->Update(contex,dt);
 }
 
-void HandleInputHelper(ESContext* context, unsigned char key, int X, int Y)
-{
-	OpenGLRenderer::GetRenderer()->HandleInput(context, key, X, Y);
-}
 
 OpenGLRenderer::OpenGLRenderer()
 {
@@ -57,14 +53,13 @@ void OpenGLRenderer::Initialize()
 	esRegisterDrawFunc(esContext, DrawHelper);
 	esRegisterUpdateFunc(esContext, UpdateHelper);
 
-	//esRegisterKeyFunc(esContext, HandleInputHelper);	
 }
 
 void OpenGLRenderer::InitializeContext(ESContext * context)
 {
 	esInitContext(esContext);
 
-	esCreateWindow(esContext, L"Drawing Primitives", 800, 600, ES_WINDOW_RGB);
+	esCreateWindow(esContext, L"Project Cars", 800, 600, ES_WINDOW_RGB);
 
 	glViewport(0, 0, context->width, context->height);
 	programObject = glCreateProgram();
@@ -74,10 +69,6 @@ void OpenGLRenderer::InitializeContext(ESContext * context)
 		Release();
 		std::exit(0);
 	}
-
-	/*SpriteComponent *comp= new SpriteComponent(programObject);
-	comp->Load();
-	spriteComponents.push_back(comp);*/
 }
 
 void OpenGLRenderer::Render(ESContext* context)
@@ -86,8 +77,9 @@ void OpenGLRenderer::Render(ESContext* context)
 	//At the beginning of each frame, clear the color buffer
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	for (int i = 0; i < spriteComponents.size(); ++i)
-		spriteComponents[i]->Render();
+	for (int i = 0; i < renderableComponents.size(); ++i)
+		renderableComponents[i]->Render();
+
 
 	eglSwapBuffers(context->eglDisplay, context->eglSurface);
 }
@@ -97,18 +89,16 @@ void OpenGLRenderer::Update(ESContext* contex, float dt)
 	inputHandler->Update(dt);
 	for (int i = 0; i < gameObjects.size(); ++i)
 		gameObjects[i]->Update(dt);
+
+	CheckCollisions();
 }
 
-void OpenGLRenderer::HandleInput(ESContext* context, unsigned char key, int X, int Y)
-{
-	std::cout << "Input is " << key << " " << X << " " << Y << std::endl;
-}
 
 void OpenGLRenderer::Release()
 {
 	glDeleteProgram(programObject);
-	for (int i = 0; i < spriteComponents.size(); ++i)
-		spriteComponents[i]->Release();
+	for (int i = 0; i < renderableComponents.size(); ++i)
+		renderableComponents[i]->Release();
 }
 
 
@@ -128,9 +118,9 @@ void OpenGLRenderer::AddGameObject(GameObject* obj)
 	gameObjects.push_back(obj);
 }
 
-void  OpenGLRenderer::AddSpriteComponent(SpriteComponent* sprite)
+void  OpenGLRenderer::AddRenderableComponent(RenderableComponent* comp)
 {
-	spriteComponents.push_back(sprite);
+	renderableComponents.push_back(comp);
 }
 
 void OpenGLRenderer::AddCollisionComponent(CollisionComponent* collision)
@@ -159,4 +149,30 @@ Size OpenGLRenderer::GetWindowSize()
 	size.height = viewport[3] - viewport[1];
 
 	return size;
+}
+
+void OpenGLRenderer::CheckCollisions()
+{
+	for (int i = 0; i < collisionComponents.size() ; ++i)
+	{
+		for (int j = i + 1; j < collisionComponents.size(); ++j)
+		{
+			CheckCollision(collisionComponents[i], collisionComponents[j]);
+		}
+	}
+
+}
+
+void OpenGLRenderer::CheckCollision(CollisionComponent* col1, CollisionComponent* col2)
+{
+	
+	if (AreIntersecting(col1->GetBoundingRect(), col2->GetBoundingRect()))
+	{
+		std::cout << "Collision" << endl;
+		GameObject* owner1 = col1->GetOwner();
+		GameObject* owner2 = col2->GetOwner();
+
+		owner1->OnCollision(owner2);
+		owner2->OnCollision(owner1);
+	}
 }

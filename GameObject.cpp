@@ -12,6 +12,11 @@ void GameObject::OnCreation()
 	
 }
 
+void GameObject::OnCollision(GameObject* other)
+{
+
+}
+
 void GameObject::Update(float dt)
 {
 	ProcessMove(dt);
@@ -19,6 +24,8 @@ void GameObject::Update(float dt)
 
 void GameObject::ProcessMove(float dt)
 {
+	if (GetPhysicsType() != Phys_Dynamic)
+		return;
 	SetPosition(GetPosition() + (GetVelocity()* dt));
 }
 
@@ -63,4 +70,14 @@ GameObject::~GameObject()
 void GameObject::AddComponent(BaseComponent * comp)
 {
 	componets.push_back(comp);
+}
+
+void GameObject::SetPhysicsType(EPhysicsType type)
+{
+	physicsType = type;
+}
+
+EPhysicsType GameObject::GetPhysicsType()
+{
+	return physicsType;
 }

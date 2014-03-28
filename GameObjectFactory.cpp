@@ -20,12 +20,24 @@ void GameObjectFactory::AddSpiteComponent(GameObject* owner, char* spritePath)
 
 	sprite->SetPosition(owner->GetPosition());
 
-	OpenGLRenderer::GetRenderer()->AddSpriteComponent(sprite);
+	OpenGLRenderer::GetRenderer()->AddRenderableComponent(sprite);
+}
+
+void GameObjectFactory::AddDebugRectangleComponent(GameObject* owner, Rect rec)
+{
+	DebugRectangleComponent* rectangle = new DebugRectangleComponent(OpenGLRenderer::GetProgramObject(),rec);
+	rectangle->Load(rec.GetSize());
+	rectangle->SetOwner(owner);
+	owner->AddComponent(rectangle);
+
+	rectangle->SetPosition(owner->GetPosition());
+
+	OpenGLRenderer::GetRenderer()->AddRenderableComponent(rectangle);
 }
 
 void GameObjectFactory::AddCollisionComponent(GameObject* owner, Rect collisionRec)
 {
-	CollisionComponent* col = new CollisionComponent();
+	CollisionComponent* col = new CollisionComponent(collisionRec);
 	col->SetOwner(owner);
 	owner->AddComponent(col);
 

@@ -16,7 +16,7 @@ public:
 	void SetOwner(GameObject* _owner);
 	GameObject* GetOwner();
 
-	void SetPosition(Vect2 _position);
+	virtual void SetPosition(Vect2 _position);
 
 	Vect2 GetPosition();
 

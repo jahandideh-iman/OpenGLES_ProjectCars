@@ -14,7 +14,11 @@ PlayerCar::~PlayerCar()
 
 void PlayerCar::OnCreation()
 {
+
+	SetPhysicsType(Phys_Dynamic);
 	GameObjectFactory::AddSpiteComponent(this, "Assets/CPP.tga");
+	GameObjectFactory::AddCollisionComponent(this, Rect(50, 50));
+	GameObjectFactory::AddDebugRectangleComponent(this, Rect(50, 50));
 
 	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this,Key_Left, inputCallBack(&PlayerCar::GoLeft));
 	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this,Key_Right, inputCallBack(&PlayerCar::GoRight));
@@ -33,6 +37,7 @@ void PlayerCar::GoLeft()
 
 void PlayerCar::GoRight()
 {
+	SetVelocity(400, 0);
 	std::cout << "Going Right"<<std::endl;
 }
 

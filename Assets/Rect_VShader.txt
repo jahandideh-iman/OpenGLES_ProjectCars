@@ -1,0 +1,15 @@
+attribute vec4 aPosition;
+
+uniform vec2 uPosition;
+uniform vec4 uColor;
+
+varying vec4 vColor;
+
+void main()								
+{
+	vec4 pos = aPosition;					
+	pos.xy += uPosition;
+	gl_Position = pos;
+
+	vColor = uColor;
+}

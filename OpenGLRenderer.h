@@ -1,7 +1,7 @@
 #pragma once
 
 #include "pch.h"
-#include "SpriteComponent.h"
+#include "RenderableComponent.h"
 #include "GameObject.h"
 #include "CollisionComponent.h"
 #include "WindowsInputHandler.h"
@@ -9,7 +9,7 @@
 
 
 typedef std::vector<GameObject*> GameObjects;
-typedef std::vector<SpriteComponent*> SpriteComponents;
+typedef std::vector<RenderableComponent*> RenderableComponents;
 typedef std::vector<CollisionComponent*> CollisionComponents;
 
 class OpenGLRenderer
@@ -21,14 +21,13 @@ public:
 
 	void Render(ESContext* context);
 	void Update(ESContext* context, float dt);
-	void HandleInput(ESContext* context, unsigned char key, int X, int Y);
 
 	static GLuint GetProgramObject();
 	static OpenGLRenderer* GetRenderer();
 
 	void AddGameObject(GameObject* obj);
 
-	void AddSpriteComponent(SpriteComponent* sprite);
+	void AddRenderableComponent(RenderableComponent* sprite);
 	void AddCollisionComponent(CollisionComponent* collision);
 
 	void RegisterOnPressKey(GameObject* _obj, EInputKey _key, inputCallBack _callBack);
@@ -43,6 +42,9 @@ private:
 	void InitializeContext(ESContext * context);
 	GLuint LoadShader(GLenum type, const char* shaderSrc);
 
+	void CheckCollisions();
+	void CheckCollision(CollisionComponent* col1, CollisionComponent* col2);
+
 	void Release();
 
 private:
@@ -51,7 +53,7 @@ private:
 	ESContext* esContext;
 	static GLuint programObject;
 
-	SpriteComponents spriteComponents;
+	RenderableComponents renderableComponents;
 	CollisionComponents collisionComponents;
 
 	GameObjects gameObjects;

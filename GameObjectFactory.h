@@ -2,6 +2,7 @@
 
 #include "GameObject.h"
 #include "SpriteComponent.h"
+#include "DebugRectangleComponent.h"
 #include "OpenGLRenderer.h"
 
 
@@ -23,6 +24,7 @@ public:
 	}
 
 	static void AddSpiteComponent(GameObject* owner, char* spritePath);
+	static void AddDebugRectangleComponent(GameObject* owner, Rect rec);
 
 	static void AddCollisionComponent(GameObject* owner, Rect collisionRec);
 

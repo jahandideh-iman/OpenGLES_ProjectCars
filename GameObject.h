@@ -6,6 +6,10 @@
 
 class GameObjectFactory;
 
+enum EPhysicsType
+{
+	Phys_None, Phys_Static, Phys_Dynamic
+};
 
 typedef std::vector<BaseComponent*> Components;
 class GameObject
@@ -17,6 +21,7 @@ public:
 	
 	virtual void Update(float dt);
 	virtual void OnCreation();
+	virtual void OnCollision(GameObject* other);
 
 	void SetPosition(Vect2 _position);
 	void SetPosition(int xPos, int yPos);
@@ -25,6 +30,9 @@ public:
 	void SetVelocity(Vect2 _velocity);
 	void SetVelocity(int xVel, int yVel);
 	Vect2 GetVelocity();
+
+	void SetPhysicsType(EPhysicsType type);
+	EPhysicsType GetPhysicsType();
 
 
 protected:
@@ -41,6 +49,8 @@ private:
 
 	Vect2 velocity;
 	Vect2 position;
+
+	EPhysicsType physicsType = Phys_Static;
 
 	
 };
