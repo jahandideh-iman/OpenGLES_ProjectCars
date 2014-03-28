@@ -14,10 +14,9 @@ PlayerCar::~PlayerCar()
 
 void PlayerCar::OnCreation()
 {
-
-	SetPhysicsType(Phys_Dynamic);
+	SetStaticFlag(false);
 	GameObjectFactory::AddSpiteComponent(this, "Assets/CPP.tga");
-	GameObjectFactory::AddCollisionComponent(this, Rect(50, 50));
+	GameObjectFactory::AddCollisionComponent(this, Rect(50, 50),Phys_Blocking);
 	GameObjectFactory::AddDebugRectangleComponent(this, Rect(50, 50));
 
 	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this,Key_Left, inputCallBack(&PlayerCar::GoLeft));

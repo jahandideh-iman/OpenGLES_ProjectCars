@@ -174,5 +174,11 @@ void OpenGLRenderer::CheckCollision(CollisionComponent* col1, CollisionComponent
 
 		owner1->OnCollision(owner2);
 		owner2->OnCollision(owner1);
+
+		if (col1->GetPhysicsType() == Phys_Blocking
+			&& col2->GetPhysicsType() == Phys_Blocking)
+		{
+			Vect2 owner1NewPos = owner1->GetPosition();
+		}
 	}
 }

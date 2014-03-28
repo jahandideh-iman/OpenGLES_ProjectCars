@@ -114,6 +114,25 @@ struct Rect
 	}
 };
 
+struct CollisionInfo
+{
+	bool bAreColliding = false;
+	Vect2 intersection;
+
+	CollisionInfo()
+	{
+		bAreColliding = false;
+		intersection = Vect2(0,0);
+	}
+
+	CollisionInfo(bool _bAreColliding, Vect2 _intersection)
+	{
+		bAreColliding = _bAreColliding;
+		intersection = _intersection;
+	}
+	
+};
+
 /*
 	TODO: Make the function to return the converted position. (GLfloat* GameSpaceToOpenGLSpace(Vect2 gamePos))
 	NOTE: I had problem using the returned array with SetUniformVect2 
@@ -138,4 +157,20 @@ static bool AreIntersecting(const Rect& rect1, const Rect& rect2)
 
 	return (dist.X < xtreshold && dist.Y < ytreshold);
 
+}
+
+static CollisionInfo GetCollisionInfo(const Rect& rect1, const Rect& rect2)
+{
+
+	CollisionInfo colInfo;
+	Vect2 origin1 = rect1.GetOrigin();
+	Vect2 origin2 = rect2.GetOrigin();
+	Vect2 dist = origin1.GetDistanceFrom(origin2);
+
+	int xtreshold = (rect1.GetSize().width + rect2.GetSize().width) / 2;
+	int ytreshold = (rect1.GetSize().height + rect2.GetSize().height) / 2;
+
+	colInfo.bAreColliding = dist.X < xtreshold && dist.Y < ytreshold;
+
+	return colInfo;
 }

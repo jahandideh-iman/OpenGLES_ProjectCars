@@ -26,7 +26,7 @@ public:
 	static void AddSpiteComponent(GameObject* owner, char* spritePath);
 	static void AddDebugRectangleComponent(GameObject* owner, Rect rec);
 
-	static void AddCollisionComponent(GameObject* owner, Rect collisionRec);
+	static void AddCollisionComponent(GameObject* owner, Rect collisionRec, EPhysicsType physType);
 
 private:
 	

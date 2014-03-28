@@ -35,9 +35,9 @@ void GameObjectFactory::AddDebugRectangleComponent(GameObject* owner, Rect rec)
 	OpenGLRenderer::GetRenderer()->AddRenderableComponent(rectangle);
 }
 
-void GameObjectFactory::AddCollisionComponent(GameObject* owner, Rect collisionRec)
+void GameObjectFactory::AddCollisionComponent(GameObject* owner, Rect collisionRec, EPhysicsType physType)
 {
-	CollisionComponent* col = new CollisionComponent(collisionRec);
+	CollisionComponent* col = new CollisionComponent(collisionRec, physType);
 	col->SetOwner(owner);
 	owner->AddComponent(col);
 

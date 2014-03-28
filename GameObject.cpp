@@ -24,7 +24,7 @@ void GameObject::Update(float dt)
 
 void GameObject::ProcessMove(float dt)
 {
-	if (GetPhysicsType() != Phys_Dynamic)
+	if (IsStatic())
 		return;
 	SetPosition(GetPosition() + (GetVelocity()* dt));
 }
@@ -72,12 +72,13 @@ void GameObject::AddComponent(BaseComponent * comp)
 	componets.push_back(comp);
 }
 
-void GameObject::SetPhysicsType(EPhysicsType type)
+
+void GameObject::SetStaticFlag(bool _bIsStatic)
 {
-	physicsType = type;
+	bIsStatic = _bIsStatic;
 }
 
-EPhysicsType GameObject::GetPhysicsType()
+bool GameObject::IsStatic()
 {
-	return physicsType;
+	return bIsStatic;
 }

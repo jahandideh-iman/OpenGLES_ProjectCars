@@ -6,10 +6,7 @@
 
 class GameObjectFactory;
 
-enum EPhysicsType
-{
-	Phys_None, Phys_Static, Phys_Dynamic
-};
+
 
 typedef std::vector<BaseComponent*> Components;
 class GameObject
@@ -31,9 +28,9 @@ public:
 	void SetVelocity(int xVel, int yVel);
 	Vect2 GetVelocity();
 
-	void SetPhysicsType(EPhysicsType type);
-	EPhysicsType GetPhysicsType();
-
+	
+	void SetStaticFlag(bool _bIsStatic);
+	bool IsStatic();
 
 protected:
 	GameObject();
@@ -50,7 +47,7 @@ private:
 	Vect2 velocity;
 	Vect2 position;
 
-	EPhysicsType physicsType = Phys_Static;
+	bool bIsStatic= false;
 
 	
 };
