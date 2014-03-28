@@ -9,6 +9,7 @@ class SpriteComponent :
 	public BaseComponent
 {
 public:
+	
 	SpriteComponent(GLuint programObj);
 	~SpriteComponent();
 

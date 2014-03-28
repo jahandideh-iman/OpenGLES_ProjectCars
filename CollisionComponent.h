@@ -7,6 +7,7 @@ class CollisionComponent :
 {
 public:
 	~CollisionComponent();
+	CollisionComponent();
 
 private:
 	Rect boundingBox;

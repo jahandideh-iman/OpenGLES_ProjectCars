@@ -63,6 +63,12 @@ struct Rect
 {
 	int width, height;
 
+	Rect()
+	{
+		width = 0;
+		height = 0;
+	}
+
 	Rect(int _width, int _height)
 	{
 		width = _width;
