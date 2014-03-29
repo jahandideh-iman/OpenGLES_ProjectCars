@@ -36,6 +36,21 @@ bool SpriteComponent::Load(char* spritePath)
 		return hr;
 	}
 
+	auto texture2D = unique_ptr<Texture2D>(new Texture2D());
+
+	//Create a texture or load from the assets
+	//this->texture2DObj = texture2D->CreateTexture2D();
+	this->texture2DObj = texture2D->LoadTexture(spritePath);
+
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, this->texture2DObj);
+
+	// Set the sampler texture unit to 0
+	glUniform1i(1, 0);
+	// Wrap texture coordinates by repeating
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
 	//Bind the first index to the "aPosition"
 	this->vShader->Bind(0, "aPosition");
 	//Link the shader
@@ -44,7 +59,7 @@ bool SpriteComponent::Load(char* spritePath)
 	this->vertexBufferSize = 20;
 	auto vertices = unique_ptr<GLfloat[]>(new GLfloat[this->vertexBufferSize]
 	{
-		-0.5f, -0.5f, 0.0f,	//Position0
+		-0.5, -0.5f, 0.0f,	//Position0
 			0.0f, 0.0f,       //TexCoord0 
 			0.5f, -0.5f, 0.0f,	//Position1
 			1.0f, 0.0f,        //TexCoord1
@@ -53,6 +68,20 @@ bool SpriteComponent::Load(char* spritePath)
 			0.5f, 0.5f, 0.0f,	//Position3
 			1.0f, 1.0f         //TexCoord3
 	});
+
+	Size size = texture2D->GetSize();
+	vertices[0] = -(size.width) / 800.0;
+	vertices[1] = -(size.height) / 600.0;
+	vertices[2] = 0;
+	vertices[5] = (size.width) / 800.0;
+	vertices[6] = -(size.height) / 600.0;
+	vertices[7] = 0;
+	vertices[10] = -(size.width) / 800.0;
+	vertices[11] = (size.height) / 600.0;
+	vertices[12] = 0;
+	vertices[15] = (size.width) / 800.0;
+	vertices[16] = (size.height) / 600.0;
+	vertices[17] = 0;
 	//Generate a single buffer and get the pointer to this buffer
 	glGenBuffers(1, &vertexBuffer);
 	//Specify that we need a vertex buffer
@@ -87,20 +116,7 @@ bool SpriteComponent::Load(char* spritePath)
 	indices.release();
 	vertices.release();
 
-	auto texture2D = unique_ptr<Texture2D>(new Texture2D());
 
-	//Create a texture or load from the assets
-	//this->texture2DObj = texture2D->CreateTexture2D();
-	this->texture2DObj = texture2D->LoadTexture(spritePath);
-
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, this->texture2DObj);
-
-	// Set the sampler texture unit to 0
-	glUniform1i(1, 0);
-	// Wrap texture coordinates by repeating
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
 	return hr;
 }

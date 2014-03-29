@@ -44,15 +44,9 @@ bool DebugRectangleComponent::Load(Size size)
 	this->vShader->Link();
 
 	const int vSize = 12;
-	auto vertices = unique_ptr<GLfloat[]>(new GLfloat[vSize]
-	{
-			-0.5f, -0.5f, 0.0f,
-			0.5f, -0.5f, 0.0f,
-			-0.5f, 0.5f, 0.0f,
-			0.5f, 0.5f, 0.0f,
-	});
+	auto vertices = unique_ptr<GLfloat[]>(new GLfloat[vSize]);
 
-	vertices.get()[0] = -(size.width ) / 800.0;
+	vertices[0] = -(size.width ) / 800.0;
 	vertices[1] = -(size.height ) / 600.0;
 	vertices[2] = 0;
 	vertices[3] = (size.width) / 800.0;

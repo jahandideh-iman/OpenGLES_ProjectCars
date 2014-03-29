@@ -18,6 +18,8 @@ GLuint Texture2D::CreateTexture2D()
 	int  width = 256;
 	int	height = 256;
 
+	size = Size(width, height);
+
 	auto pixels = unique_ptr<GLubyte[]>(new GLubyte[width * height * 3]);
 	if (pixels == nullptr)
 	{
@@ -81,6 +83,9 @@ GLuint Texture2D::LoadTexture(char* path)
 	int width;
 	int height;
 	auto pixels = esLoadTGA(path, &width, &height);
+
+	size = Size(width, height);
+
 	if (pixels == nullptr)
 	{
 		cout << "Could not allocate the memory for the pixels, error in Texture2D" << endl;
@@ -110,4 +115,9 @@ GLuint Texture2D::LoadTexture(char* path)
 	delete[] pixels;
 
 	return textureObj;
+}
+
+Size Texture2D::GetSize()
+{
+	return size;
 }
