@@ -18,6 +18,8 @@ void WindowsInputHandler::InitialKeyMap()
 {
 	keyMap[VK_LEFT] = Key_Left;
 	keyMap[VK_RIGHT] = Key_Right;
+	keyMap[VK_UP] = Key_Up;
+	keyMap[VK_DOWN] = Key_Down;
 	keyMap['A'] = Key_A;
 	keyMap['D'] = Key_D;
 }

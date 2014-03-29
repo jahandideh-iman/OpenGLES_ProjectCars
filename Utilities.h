@@ -86,6 +86,12 @@ struct Rect
 		SetOrigin(0, 0);
 	}
 
+	Rect(Size size)
+	{
+		SetSize(size.width, size.height);
+		SetOrigin(0, 0);
+	}
+
 	Rect(int _width, int _height)
 	{
 		SetSize(_width, _height);
@@ -181,13 +187,22 @@ static CollisionInfo GetCollisionInfo(const Rect& rect1, const Rect& rect2)
 	{
 		int xAxisProject = 0;
 		if (origin1.X > origin2.X)
-			xAxisProject = (origin2.X + rect2.GetSize().width / 2.0) - (origin1.X - rect1.GetSize().width / 2.0);
+			xAxisProject = (origin2.X + rect2.GetSize().width / 2.0) - (origin1.X - rect1.GetSize().width / 2.0)+1;
 		else
-			xAxisProject = (origin1.X + rect1.GetSize().width / 2.0) - (origin2.X - rect2.GetSize().width / 2.0);
+			xAxisProject = -((origin1.X + rect1.GetSize().width / 2.0) - (origin2.X - rect2.GetSize().width / 2.0)+1);
+
+		int yAxisProject = 0;
+		if (origin1.Y > origin2.Y)
+			yAxisProject = (origin2.Y + rect2.GetSize().height / 2.0) - (origin1.Y - rect1.GetSize().height / 2.0) + 1;
+		else
+			yAxisProject = -((origin1.Y + rect1.GetSize().height / 2.0) - (origin2.Y - rect2.GetSize().height / 2.0) + 1);
 
 		
+		if (abs(yAxisProject) < abs(xAxisProject))
+			colInfo.intersection = Vect2(0, yAxisProject);
+		else
+			colInfo.intersection = Vect2(xAxisProject, 0);
 
-		colInfo.intersection.X = xAxisProject+1;
 	}
 
 

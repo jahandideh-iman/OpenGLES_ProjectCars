@@ -7,5 +7,8 @@ public:
 	~SideBlocker();
 
 	void OnCreation() override;
-};
 
+	void InitialBlocker(Size size);
+
+
+};

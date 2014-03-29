@@ -9,7 +9,7 @@
 
 enum EInputKey
 {
-	Key_None, Key_W, Key_A, Key_D, Key_Left, Key_Right
+	Key_None, Key_W, Key_S, Key_A, Key_D, Key_Left, Key_Right, Key_Up, Key_Down
 };
 
 typedef void (GameObject::* inputCallBack)();

@@ -9,8 +9,14 @@ SideBlocker::~SideBlocker()
 
 void SideBlocker::OnCreation()
 {
-	SetStaticFlag(true);
-	GameObjectFactory::AddCollisionComponent(this, Rect(50, 200),Phys_Blocking);
-	GameObjectFactory::AddDebugRectangleComponent(this, Rect(50, 200));
+	
+	
 
+}
+
+void SideBlocker::InitialBlocker(Size size)
+{
+	SetStaticFlag(true);
+	GameObjectFactory::AddCollisionComponent(this, Rect(size), Phys_Blocking);
+	GameObjectFactory::AddDebugRectangleComponent(this, Rect(size));
 }
