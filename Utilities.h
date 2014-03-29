@@ -32,6 +32,11 @@ struct Vect2
 		return Vect2(X+other.X , Y+other.Y);
 	}
 
+	Vect2 operator-(const Vect2& other)
+	{
+		return Vect2(X - other.X, Y - other.Y);
+	}
+
 	Vect2 operator*(const float a)
 	{
 		return Vect2(X*a, Y*a);
@@ -142,8 +147,8 @@ static void GameSpaceToOpenGLSpace(Vect2& gamePos, GLfloat glPos[2] )
 {
 	//Size windowSize = OpenGLRenderer::GetRenderer()->GetWindowSize();
 	//TODO: wtf is this? refactor it.
-	glPos[0] = (float(gamePos.X) / 800) - 1;
-	glPos[1] = (float(gamePos.Y) / 600) - 1;
+	glPos[0] = (float(gamePos.X) / 400) - 1;
+	glPos[1] = (float(gamePos.Y) / 300) - 1;
 }
 
 static bool AreIntersecting(const Rect& rect1, const Rect& rect2)
@@ -161,7 +166,7 @@ static bool AreIntersecting(const Rect& rect1, const Rect& rect2)
 
 static CollisionInfo GetCollisionInfo(const Rect& rect1, const Rect& rect2)
 {
-
+	//TODO: Clean this shit up.
 	CollisionInfo colInfo;
 	Vect2 origin1 = rect1.GetOrigin();
 	Vect2 origin2 = rect2.GetOrigin();
@@ -171,6 +176,18 @@ static CollisionInfo GetCollisionInfo(const Rect& rect1, const Rect& rect2)
 	int ytreshold = (rect1.GetSize().height + rect2.GetSize().height) / 2;
 
 	colInfo.bAreColliding = dist.X < xtreshold && dist.Y < ytreshold;
+	
+	if (colInfo.bAreColliding)
+	{
+		int xAxisProject = 0;
+		if (origin1.X > origin2.X)
+			xAxisProject = (origin2.X + rect2.GetSize().width / 2.0) - (origin1.X - rect1.GetSize().width / 2.0);
+		else
+			xAxisProject = (origin1.X + rect1.GetSize().width / 2.0) - (origin2.X - rect2.GetSize().width / 2.0);
+
+		colInfo.intersection.X = xAxisProject+1;
+	}
+
 
 	return colInfo;
 }

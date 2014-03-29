@@ -44,6 +44,7 @@ private:
 
 	void CheckCollisions();
 	void CheckCollision(CollisionComponent* col1, CollisionComponent* col2);
+	void ResolveCollision(CollisionComponent* col1, CollisionComponent* col2, CollisionInfo &colInfo);
 
 	void Release();
 

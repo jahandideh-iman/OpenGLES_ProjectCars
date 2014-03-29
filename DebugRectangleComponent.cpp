@@ -52,17 +52,17 @@ bool DebugRectangleComponent::Load(Size size)
 			0.5f, 0.5f, 0.0f,
 	});
 
-	vertices.get()[0] = -(size.width / 2.0) / 800;
-	vertices[1] = -(size.height / 2.0) / 600;
+	vertices.get()[0] = -(size.width ) / 800.0;
+	vertices[1] = -(size.height ) / 600.0;
 	vertices[2] = 0;
-	vertices[3] = (size.width / 2.0) / 800;
-	vertices[4] = -(size.height / 2.0) / 600;
+	vertices[3] = (size.width) / 800.0;
+	vertices[4] = -(size.height) / 600.0;
 	vertices[5] = 0;
-	vertices[6] = -(size.width / 2.0) / 800;
-	vertices[7] = (size.height / 2.0) / 600;
+	vertices[6] = -(size.width ) / 800.0;
+	vertices[7] = (size.height ) / 600.0;
 	vertices[8] = 0;
-	vertices[9] = (size.width / 2.0) / 800;
-	vertices[10] = (size.height / 2.0) / 600;
+	vertices[9] = (size.width) / 800.0;
+	vertices[10] = (size.height ) / 600.0;
 	vertices[11] = 0;
 
 	//Generate a single buffer and get the pointer to this buffer

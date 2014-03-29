@@ -1,4 +1,5 @@
 #include "OpenGLRenderer.h"
+#include <cassert>
 
 using namespace std;
 
@@ -165,8 +166,8 @@ void OpenGLRenderer::CheckCollisions()
 
 void OpenGLRenderer::CheckCollision(CollisionComponent* col1, CollisionComponent* col2)
 {
-	
-	if (AreIntersecting(col1->GetBoundingRect(), col2->GetBoundingRect()))
+	CollisionInfo collisionInfo = GetCollisionInfo(col1->GetBoundingRect(), col2->GetBoundingRect());
+	if (collisionInfo.bAreColliding)
 	{
 		std::cout << "Collision" << endl;
 		GameObject* owner1 = col1->GetOwner();
@@ -178,7 +179,29 @@ void OpenGLRenderer::CheckCollision(CollisionComponent* col1, CollisionComponent
 		if (col1->GetPhysicsType() == Phys_Blocking
 			&& col2->GetPhysicsType() == Phys_Blocking)
 		{
-			Vect2 owner1NewPos = owner1->GetPosition();
+			ResolveCollision(col1, col2, collisionInfo);
 		}
 	}
+}
+
+void OpenGLRenderer::ResolveCollision(CollisionComponent* col1, CollisionComponent* col2, CollisionInfo &colInfo)
+{
+	//TODO: Clean this shit up
+
+	//None of them is static
+	//NOTE: This assertion is wrong. For example when a static object is created on a static object
+	//TODO: Fix the about Note.
+	assert(!(col1->GetOwner()->IsStatic() && col2->GetOwner()->IsStatic()));
+
+	if (!col1->GetOwner()->IsStatic())
+	{
+		Vect2 tempPos = col1->GetOwner()->GetPosition();
+		col1->GetOwner()->SetPosition(col1->GetOwner()->GetPosition() + colInfo.intersection);
+	}
+	if (!col2->GetOwner()->IsStatic())
+	{
+		col2->GetOwner()->SetPosition(col2->GetOwner()->GetPosition() - colInfo.intersection);
+	}
+
+
 }

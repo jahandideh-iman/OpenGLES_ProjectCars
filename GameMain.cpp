@@ -11,11 +11,16 @@ void GameMain::Update(float dt)
 
 void GameMain::OnCreation()
 {
+	GameObjectFactory::CreateActor<SideBlocker>()->SetPosition(600, 200);
+	
+
 	std::cout << "GameMain::OnCreation" << std::endl;
 	playerCar = (PlayerCar*) GameObjectFactory::CreateActor<PlayerCar>();
-	playerCar->SetPosition(600, 100);
+	playerCar->SetPosition(400, 100);
 
-	GameObjectFactory::CreateActor<SideBlocker>()->SetPosition(300,200);
+	GameObjectFactory::CreateActor<SideBlocker>()->SetPosition(300, 200);
+
+	
 
 	
 
