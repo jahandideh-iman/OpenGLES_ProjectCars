@@ -3,9 +3,6 @@
 
 using namespace std;
 
-
-
-GLuint OpenGLRenderer::programObject;
 OpenGLRenderer* OpenGLRenderer::renderer = nullptr;
 
 
@@ -63,13 +60,7 @@ void OpenGLRenderer::InitializeContext(ESContext * context)
 	esCreateWindow(esContext, L"Project Cars", 800, 600, ES_WINDOW_RGB);
 
 	glViewport(0, 0, context->width, context->height);
-	programObject = glCreateProgram();
-	if (!programObject)
-	{
-		cout << "Could not load program object";
-		Release();
-		std::exit(0);
-	}
+
 }
 
 void OpenGLRenderer::Render(ESContext* context)
@@ -97,16 +88,12 @@ void OpenGLRenderer::Update(ESContext* contex, float dt)
 
 void OpenGLRenderer::Release()
 {
-	glDeleteProgram(programObject);
+	//TODO : programObjects are now stored in RenderableComponents. find a way to delete them.
+	//glDeleteProgram(programObject);
 	for (int i = 0; i < renderableComponents.size(); ++i)
 		renderableComponents[i]->Release();
 }
 
-
-GLuint OpenGLRenderer::GetProgramObject()
-{
-	return programObject;
-}
 
 OpenGLRenderer* OpenGLRenderer::GetRenderer()
 {

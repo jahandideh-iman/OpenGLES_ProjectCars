@@ -3,21 +3,38 @@
 #include "BaseComponent.h"
 #include "Texture2D.h"
 #include "Shader.h"
+#include <unordered_map>
 
+
+typedef std::string OpenGLKey;
+
+typedef std::unordered_map<OpenGLKey, GLuint> ProgramObjectMap;
 
 class RenderableComponent :
 	public BaseComponent
 {
+
+public:
+	static ProgramObjectMap programObjectMap;
 public:
 
-	RenderableComponent(GLuint programObj);
+	RenderableComponent();
 	~RenderableComponent();
 
 	virtual void Render()=0;
 	virtual void Release();
 
+	virtual OpenGLKey GetKey();
+
 
 protected:
+
+	GLuint CreateProgramObject();
+
+	
+
+protected:
+
 
 	GLuint programObject;
 	GLuint vertexBuffer;
@@ -27,6 +44,8 @@ protected:
 	
 	std::unique_ptr<Shader> vShader;
 	std::unique_ptr<Shader> fShader;
+
+	
 
 
 };

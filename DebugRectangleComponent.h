@@ -7,12 +7,15 @@ class DebugRectangleComponent :
 	public RenderableComponent
 {
 public:
-	DebugRectangleComponent(GLuint programObj, Rect rect);
+	DebugRectangleComponent( Rect rect);
 	~DebugRectangleComponent();
 
 	bool Load(Size size);
 
 	void Render() override;
+
+
+	OpenGLKey GetKey() override;
 
 
 

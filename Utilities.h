@@ -185,6 +185,8 @@ static CollisionInfo GetCollisionInfo(const Rect& rect1, const Rect& rect2)
 		else
 			xAxisProject = (origin1.X + rect1.GetSize().width / 2.0) - (origin2.X - rect2.GetSize().width / 2.0);
 
+		
+
 		colInfo.intersection.X = xAxisProject+1;
 	}
 

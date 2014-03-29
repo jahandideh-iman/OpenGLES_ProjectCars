@@ -22,7 +22,6 @@ public:
 	void Render(ESContext* context);
 	void Update(ESContext* context, float dt);
 
-	static GLuint GetProgramObject();
 	static OpenGLRenderer* GetRenderer();
 
 	void AddGameObject(GameObject* obj);
@@ -52,7 +51,6 @@ private:
 
 	static OpenGLRenderer * renderer;
 	ESContext* esContext;
-	static GLuint programObject;
 
 	RenderableComponents renderableComponents;
 	CollisionComponents collisionComponents;

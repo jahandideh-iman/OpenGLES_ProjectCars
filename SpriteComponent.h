@@ -10,12 +10,14 @@ class SpriteComponent :
 {
 public:
 	
-	SpriteComponent(GLuint programObj);
+	SpriteComponent();
 	~SpriteComponent();
 
 	bool Load(char* spritePath);
 	void Render();
 	void Release() override;
+
+	OpenGLKey GetKey() override;
 
 private:
 	GLuint texture2DObj;

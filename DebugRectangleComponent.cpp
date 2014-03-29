@@ -2,8 +2,8 @@
 
 using namespace std;
 
-DebugRectangleComponent::DebugRectangleComponent(GLuint programObj, Rect rect)
-:RenderableComponent(programObj) 
+DebugRectangleComponent::DebugRectangleComponent(Rect rect)
+:RenderableComponent() 
 {
 	boundingRect = rect;
 	color[0] = 0;
@@ -108,6 +108,7 @@ bool DebugRectangleComponent::Load(Size size)
 
 void DebugRectangleComponent::Render()
 {
+
 	//Draw the triangle using vertices
 	glUseProgram(programObject);
 
@@ -135,4 +136,10 @@ void DebugRectangleComponent::Render()
 
 	//Disable the vertex attribute array
 	glDisableVertexAttribArray(0);
+}
+
+
+OpenGLKey DebugRectangleComponent::GetKey()
+{
+	return "OpenGL_DebugRec";
 }

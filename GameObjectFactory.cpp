@@ -13,7 +13,7 @@ GameObjectFactory::~GameObjectFactory()
 
 void GameObjectFactory::AddSpiteComponent(GameObject* owner, char* spritePath)
 {
-	SpriteComponent* sprite = new SpriteComponent(OpenGLRenderer::GetProgramObject());
+	SpriteComponent* sprite = new SpriteComponent();
 	sprite->Load(spritePath);
 	sprite->SetOwner(owner);
 	owner->AddComponent(sprite);
@@ -25,7 +25,7 @@ void GameObjectFactory::AddSpiteComponent(GameObject* owner, char* spritePath)
 
 void GameObjectFactory::AddDebugRectangleComponent(GameObject* owner, Rect rec)
 {
-	DebugRectangleComponent* rectangle = new DebugRectangleComponent(OpenGLRenderer::GetProgramObject(),rec);
+	DebugRectangleComponent* rectangle = new DebugRectangleComponent(rec);
 	rectangle->Load(rec.GetSize());
 	rectangle->SetOwner(owner);
 	owner->AddComponent(rectangle);

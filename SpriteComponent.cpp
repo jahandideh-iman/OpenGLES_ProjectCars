@@ -4,8 +4,8 @@
 
 using namespace std;
 
-SpriteComponent::SpriteComponent(GLuint programObj) 
-: RenderableComponent(programObj)
+SpriteComponent::SpriteComponent() 
+: RenderableComponent()
 {
 }
 
@@ -107,13 +107,14 @@ bool SpriteComponent::Load(char* spritePath)
 
 void SpriteComponent::Render()
 {
+	//Draw the triangle using vertices
+	glUseProgram(programObject);
 	//TODO: find a better soloution ( not reseting it every frame)
 	GLfloat pos[2];;
 	GameSpaceToOpenGLSpace(GetPosition(), pos);
 	this->vShader->SetUniformVect2("uPosition",pos);
 
-	//Draw the triangle using vertices
-	glUseProgram(programObject);
+	
 
 	//Bind to the vertex buffer and enable the vertex attribute array, that is only "aPosition"
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
@@ -174,4 +175,9 @@ void SpriteComponent::Release()
 {
 	RenderableComponent::Release();
 	this->texture2DObj = 0;
+}
+
+OpenGLKey SpriteComponent::GetKey()
+{
+	return "OpenGL_Sprite";
 }
