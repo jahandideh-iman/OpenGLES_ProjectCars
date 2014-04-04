@@ -11,7 +11,7 @@ GameObjectFactory::~GameObjectFactory()
 {
 }
 
-void GameObjectFactory::AddSpiteComponent(GameObject* owner, char* spritePath , int zOrder)
+SpriteComponent* GameObjectFactory::AddSpiteComponent(GameObject* owner, char* spritePath , int zOrder)
 {
 	SpriteComponent* sprite = new SpriteComponent();
 	sprite->Load(spritePath);
@@ -22,6 +22,7 @@ void GameObjectFactory::AddSpiteComponent(GameObject* owner, char* spritePath , 
 	sprite->SetPosition(owner->GetPosition());
 
 	OpenGLRenderer::GetRenderer()->AddRenderableComponent(sprite);
+	return sprite;
 }
 
 void GameObjectFactory::AddDebugRectangleComponent(GameObject* owner, Rect rec)

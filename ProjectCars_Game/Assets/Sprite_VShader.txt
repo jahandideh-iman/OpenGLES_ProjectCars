@@ -2,6 +2,7 @@ attribute vec4 aPosition;
 attribute vec2 aTexCoord;
 
 uniform vec2 uPosition;
+uniform vec2 uTexCoord;
 
 varying vec2 vTexCoord;
 
@@ -12,4 +13,5 @@ void main()
 	gl_Position = pos;
 
 	vTexCoord = aTexCoord;
+	vTexCoord.xy += uTexCoord;
 }

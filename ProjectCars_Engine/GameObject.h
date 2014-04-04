@@ -28,7 +28,7 @@ public:
 	void SetVelocity(int xVel, int yVel);
 	Vect2 GetVelocity();
 
-	
+
 	void SetStaticFlag(bool _bIsStatic);
 	bool IsStatic();
 

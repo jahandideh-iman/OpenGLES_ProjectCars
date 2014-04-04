@@ -6,6 +6,7 @@
 class GameObject;
 class GameObjectFactory;
 
+
 class BaseComponent
 {
 	friend GameObjectFactory;
@@ -19,6 +20,7 @@ public:
 	virtual void SetPosition(Vect2 _position);
 
 	Vect2 GetPosition();
+
 
 protected: 
 	BaseComponent();

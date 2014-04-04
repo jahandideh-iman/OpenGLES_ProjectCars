@@ -35,8 +35,10 @@ bool SpriteComponent::Load(char* spritePath)
 		return hr;
 	}
 
-	auto texture2D = unique_ptr<Texture2D>(new Texture2D());
+	texture2D = unique_ptr<Texture2D>(new Texture2D());
 
+	texCoord[0] = 0;
+	texCoord[1] = 1;
 	//Create a texture or load from the assets
 	//this->texture2DObj = texture2D->CreateTexture2D();
 	this->texture2DObj = texture2D->LoadTexture(spritePath);
@@ -124,12 +126,29 @@ void SpriteComponent::Render()
 {
 	//Draw the triangle using vertices
 	glUseProgram(programObject);
+
+	//------------------ Set The Texture ------------------------//
+	//THE FUCK IS THIS?
+
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, this->texture2DObj);
+
+	// Set the sampler texture unit to 0
+	glUniform1i(1, 0);
+	// Wrap texture coordinates by repeating
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	//----------------------------------- ------------------------//
+
+
 	//TODO: find a better soloution ( not reseting it every frame)
 	GLfloat pos[2];;
 	GameSpaceToOpenGLSpace(GetPosition(), pos);
 	this->vShader->SetUniformVect2("uPosition",pos);
 
-	
+	this->vShader->SetUniformVect2("uTexCoord", texCoord);
+
+
 
 	//Bind to the vertex buffer and enable the vertex attribute array, that is only "aPosition"
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
@@ -195,4 +214,19 @@ void SpriteComponent::Release()
 OpenGLKey SpriteComponent::GetKey()
 {
 	return "OpenGL_Sprite";
+}
+
+
+void SpriteComponent::AddTexCoord(int xPixel, int yPixel)
+{
+	Size size =  texture2D->GetSize();
+
+	texCoord[0] += float(xPixel) / size.width;
+	texCoord[1] += float(yPixel) / size.height;
+
+	if (texCoord[0] > 1)
+		texCoord[0] -= 1;
+
+	if (texCoord[1] > 1)
+		texCoord[1] -= 1;
 }

@@ -17,10 +17,16 @@ public:
 	void Render();
 	void Release() override;
 
+	void AddTexCoord(int xPixel, int yPixel);
+
 	OpenGLKey GetKey() override;
 
 private:
 	GLuint texture2DObj;
+
+	std::unique_ptr<Texture2D> texture2D;
+
+	GLfloat texCoord[2];
 
 
 

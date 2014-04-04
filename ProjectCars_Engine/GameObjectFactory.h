@@ -23,7 +23,7 @@ public:
 		return obj;
 	}
 
-	static void AddSpiteComponent(GameObject* owner, char* spritePath, int zOder = 0);
+	static SpriteComponent* AddSpiteComponent(GameObject* owner, char* spritePath, int zOder = 0);
 	static void AddDebugRectangleComponent(GameObject* owner, Rect rec);
 
 	static void AddCollisionComponent(GameObject* owner, Rect collisionRec, EPhysicsType physType);

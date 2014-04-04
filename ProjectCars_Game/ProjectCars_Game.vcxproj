@@ -81,6 +81,7 @@
     <ClInclude Include="BaseCar.h" />
     <ClInclude Include="GameMain.h" />
     <ClInclude Include="PlayerCar.h" />
+    <ClInclude Include="Road.h" />
     <ClInclude Include="SideBlocker.h" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +89,7 @@
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlayerCar.cpp" />
+    <ClCompile Include="Road.cpp" />
     <ClCompile Include="SideBlocker.cpp" />
   </ItemGroup>
   <ItemGroup>

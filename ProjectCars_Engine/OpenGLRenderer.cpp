@@ -68,6 +68,8 @@ void OpenGLRenderer::Render(ESContext* context)
 	glClearColor(0.7f, 0.7f, 0.7f, 1.0f);
 	//At the beginning of each frame, clear the color buffer
 	glClear(GL_COLOR_BUFFER_BIT);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	for (int i = 0; i < renderableComponents.size(); ++i)
 		renderableComponents[i]->Render();

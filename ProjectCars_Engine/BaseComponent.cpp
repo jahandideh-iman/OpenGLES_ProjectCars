@@ -28,3 +28,4 @@ Vect2 BaseComponent::GetPosition()
 {
 	return position;
 }
+
