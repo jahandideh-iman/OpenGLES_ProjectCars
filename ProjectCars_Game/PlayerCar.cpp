@@ -15,7 +15,7 @@ PlayerCar::~PlayerCar()
 void PlayerCar::OnCreation()
 {
 	SetStaticFlag(false);
-	GameObjectFactory::AddSpiteComponent(this, "Assets/Car.tga",20);
+	GameObjectFactory::AddSpiteComponent(this, "Assets/Car.tga", 20)->SetOpaciyColor(1, 1, 1);
 	GameObjectFactory::AddCollisionComponent(this, Rect(50, 50),Phys_Blocking);
 	GameObjectFactory::AddDebugRectangleComponent(this, Rect(50, 50));
 

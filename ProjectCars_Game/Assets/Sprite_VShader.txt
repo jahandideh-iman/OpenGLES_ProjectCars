@@ -3,8 +3,11 @@ attribute vec2 aTexCoord;
 
 uniform vec2 uPosition;
 uniform vec2 uTexCoord;
+uniform vec4 uOpacityColor;
 
 varying vec2 vTexCoord;
+
+varying vec3 vOpacityColor;
 
 void main()								
 {
@@ -14,4 +17,6 @@ void main()
 
 	vTexCoord = aTexCoord;
 	vTexCoord.xy += uTexCoord;
+
+	vOpacityColor = uOpacityColor.rgb;
 }

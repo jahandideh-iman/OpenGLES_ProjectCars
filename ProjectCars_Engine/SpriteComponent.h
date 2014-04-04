@@ -18,6 +18,7 @@ public:
 	void Release() override;
 
 	void AddTexCoord(int xPixel, int yPixel);
+	void SetOpaciyColor(float R, float G, float B);
 
 	OpenGLKey GetKey() override;
 
@@ -26,7 +27,9 @@ private:
 
 	std::unique_ptr<Texture2D> texture2D;
 
-	GLfloat texCoord[2];
+	GLfloat texCoord[2] ;
+
+	GLfloat opacityColor[4];
 
 
 

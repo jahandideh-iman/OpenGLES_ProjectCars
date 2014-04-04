@@ -172,7 +172,7 @@ void OpenGLRenderer::CheckCollision(CollisionComponent* col1, CollisionComponent
 	CollisionInfo collisionInfo = GetCollisionInfo(col1->GetBoundingRect(), col2->GetBoundingRect());
 	if (collisionInfo.bAreColliding)
 	{
-		std::cout << "Collision" << endl;
+		//std::cout << "Collision" << endl;
 		GameObject* owner1 = col1->GetOwner();
 		GameObject* owner2 = col2->GetOwner();
 
