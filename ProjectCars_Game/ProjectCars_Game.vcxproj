@@ -52,12 +52,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)\ProjectCars_Engine;$(SolutionDir)\ProjectCars_Engine\ThirdParty\Angel\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\ProjectCars_Engine;$(SolutionDir)\ProjectCars_Engine\ThirdParty\Angel\include;$(SolutionDir)\ProjectCars_Engine\ThirdParty\FreeType;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)\ProjectCars_Engine\ThirdParty\Angel\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\ProjectCars_Engine\ThirdParty\Angel\lib;$(SolutionDir)\ProjectCars_Engine\ThirdParty\FreeType\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype.lib;freetypeMT_D.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -83,6 +84,7 @@
     <ClInclude Include="PlayerCar.h" />
     <ClInclude Include="Road.h" />
     <ClInclude Include="SideBlocker.h" />
+    <ClInclude Include="WorkInProgressGUI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseCar.cpp" />
@@ -91,6 +93,7 @@
     <ClCompile Include="PlayerCar.cpp" />
     <ClCompile Include="Road.cpp" />
     <ClCompile Include="SideBlocker.cpp" />
+    <ClCompile Include="WorkInProgressGUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjectCars_Engine\ProjectCars_Engine.vcxproj">

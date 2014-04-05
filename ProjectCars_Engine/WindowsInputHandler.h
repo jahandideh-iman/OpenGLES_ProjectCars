@@ -2,19 +2,18 @@
 
 #include "GameObject.h"
 #include <unordered_map>
+#include "Utilities.h"
 
 #define KEYSCOUT 256
 
-#define CALL_MEMBER_FN(object,ptrToMember)  ((object)->*(ptrToMember))
+
 
 enum EInputKey
 {
 	Key_None, Key_W, Key_S, Key_A, Key_D, Key_Left, Key_Right, Key_Up, Key_Down
 };
 
-typedef void (GameObject::* inputCallBack)();
 
-typedef std::pair<GameObject*, inputCallBack> CallBackInfo;
 
 typedef std::vector<CallBackInfo> CallBackContainer;
 typedef std::unordered_map<EInputKey, CallBackContainer  >  RegisterContainer;

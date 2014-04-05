@@ -25,5 +25,7 @@ private:
 	FT_Library freeTypeLibarary;
 
 	FT_Face face;
+
+	GLuint tex;
 };
 

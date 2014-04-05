@@ -208,3 +208,6 @@ static CollisionInfo GetCollisionInfo(const Rect& rect1, const Rect& rect2)
 
 	return colInfo;
 }
+
+
+#define CALL_MEMBER_FN(object,ptrToMember)  ((object)->*(ptrToMember))

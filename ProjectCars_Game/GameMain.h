@@ -4,6 +4,7 @@
 #include "PlayerCar.h"
 #include "SideBlocker.h"
 #include "Road.h"
+#include "WorkInProgressGUI.h"
 
 
 class GameMain: public GameObject
@@ -16,6 +17,8 @@ public:
 
 	void IncreaseSpeed();
 	void DecreaseSpeed();
+
+	void TestTimer();
 
 private:
 	PlayerCar* playerCar;

@@ -18,7 +18,7 @@ bool TextComponent::Load()
 		std::cout << "Could not init freetype library" << std::endl;
 
 
-	if (FT_New_Face(freeTypeLibarary, "FreeSans.ttf", 0, &face))
+	if (FT_New_Face(freeTypeLibarary, "Assets/timesbi.ttf", 0, &face))
 		std::cout << "Could not open font" << std::endl;
 
 	FT_Set_Pixel_Sizes(face, 0, 48);
@@ -26,7 +26,7 @@ bool TextComponent::Load()
 
 	auto hr = this->vShader->LoadFromFile(
 		GL_VERTEX_SHADER,
-		"Assets/Sprite_VShader.txt");
+		"Assets/Text_VShader.txt");
 	if (!hr)
 	{
 		cout << "Error on loading vertex shader" << endl;
@@ -36,14 +36,13 @@ bool TextComponent::Load()
 	//the fragment shader returns the color of pixel
 	hr = this->fShader->LoadFromFile(
 		GL_FRAGMENT_SHADER,
-		"Assets/Sprite_FShader.txt");
+		"Assets/Text_FShader.txt");
 	if (!hr)
 	{
 		cout << "Error on loading fragment shader" << endl;
 		return hr;
 	}
 
-	GLuint tex;
 	glActiveTexture(GL_TEXTURE0);
 	glGenTextures(1, &tex);
 	glBindTexture(GL_TEXTURE_2D, tex);
@@ -65,8 +64,21 @@ bool TextComponent::Load()
 
 void TextComponent::Render()
 {
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glUseProgram(programObject);
+
+
+	//GLfloat pos[2] = { 0.5, 0.5 };
+	//this->vShader->SetUniformVect2("uPosition", pos);
+
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, tex);
+	glUniform1i(0, 0);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	float x = 200;
 	float y = 200;
@@ -77,6 +89,8 @@ void TextComponent::Render()
 	const char *p;
 
 	FT_GlyphSlot g = face->glyph;
+
+	text = "HELLO";
 
 	for (p = text; *p; p++) 
 	{
@@ -115,7 +129,6 @@ void TextComponent::Render()
 	}
 
 
-	glDisable(GL_BLEND);
 }
 
 OpenGLKey TextComponent::GetKey()

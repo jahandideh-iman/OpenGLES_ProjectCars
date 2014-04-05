@@ -7,6 +7,9 @@
 class GameObjectFactory;
 
 
+typedef void (GameObject::* inputCallBack)();
+
+typedef std::pair<GameObject*, inputCallBack> CallBackInfo;
 
 typedef std::vector<BaseComponent*> Components;
 class GameObject
