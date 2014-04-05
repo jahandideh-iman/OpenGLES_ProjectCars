@@ -41,6 +41,8 @@ void OpenGLRenderer::Start()
 }
 void OpenGLRenderer::Initialize()
 {
+	InitialRandomSeed();
+
 	inputHandler = new WindowsInputHandler();
 
 	esContext = new ESContext();

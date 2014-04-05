@@ -19,7 +19,7 @@ public:
 		GameObject* obj = (GameObject*) new ActorClass;
 
 		OpenGLRenderer::GetRenderer()->AddGameObject(obj);
-
+		obj->SetDestroyCallBack(GameObjectFactory::DestroyActor);
 		obj->OnCreation();
 		return obj;
 	}
@@ -30,6 +30,9 @@ public:
 	static void AddCollisionComponent(GameObject* owner, Rect collisionRec, EPhysicsType physType);
 
 	static TextComponent* AddTextComponent(GameObject* owner, char * text, int zOrder = 0);
+
+	static void DestroyActor(GameObject* actor);
+	static void DestoryComponent(BaseComponent* component);
 
 private:
 	

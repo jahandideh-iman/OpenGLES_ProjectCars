@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include <cassert>
 
 
 GameObject::GameObject()
@@ -20,6 +21,22 @@ void GameObject::OnCollision(GameObject* other)
 void GameObject::Update(float dt)
 {
 	ProcessMove(dt);
+}
+
+void GameObject::Destroy()
+{
+	while (!componets.empty())
+		componets[0]->Destroy();
+
+	assert(destroyCallBack != nullptr);
+
+	destroyCallBack(this);
+	
+}
+
+void GameObject::SetDestroyCallBack(DestroyCallBack _destroyCallBack)
+{
+	destroyCallBack = _destroyCallBack;
 }
 
 void GameObject::ProcessMove(float dt)

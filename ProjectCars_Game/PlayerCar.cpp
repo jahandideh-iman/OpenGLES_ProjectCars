@@ -34,25 +34,25 @@ void PlayerCar::OnCreation()
 void PlayerCar::GoLeft()
 {
 	SetVelocity(-400, 0);
-	std::cout << "Going Left"<<std::endl;
+	//std::cout << "Going Left"<<std::endl;
 }
 
 void PlayerCar::GoRight()
 {
 	SetVelocity(400, 0);
-	std::cout << "Going Right"<<std::endl;
+	//std::cout << "Going Right"<<std::endl;
 }
 
 void PlayerCar::GoUp()
 {
 	SetVelocity(0, 400);
-	std::cout << "Going Up" << std::endl;
+	//std::cout << "Going Up" << std::endl;
 }
 
 void PlayerCar::GoDown()
 {
 	SetVelocity(0, -400);
-	std::cout << "Going Down" << std::endl;
+	//std::cout << "Going Down" << std::endl;
 }
 
 void PlayerCar::Stop()

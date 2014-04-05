@@ -12,6 +12,9 @@ typedef void (GameObject::* inputCallBack)();
 typedef std::pair<GameObject*, inputCallBack> CallBackInfo;
 
 typedef std::vector<BaseComponent*> Components;
+
+typedef void(*DestroyCallBack)(GameObject*);
+
 class GameObject
 {
 	friend GameObjectFactory;
@@ -23,6 +26,8 @@ public:
 	virtual void OnCreation();
 	virtual void OnCollision(GameObject* other);
 
+	virtual void Destroy();
+
 	void SetPosition(Vect2 _position);
 	void SetPosition(int xPos, int yPos);
 	Vect2 GetPosition();
@@ -31,7 +36,7 @@ public:
 	void SetVelocity(int xVel, int yVel);
 	Vect2 GetVelocity();
 
-
+	
 	void SetStaticFlag(bool _bIsStatic);
 	bool IsStatic();
 
@@ -42,6 +47,8 @@ protected:
 private:
 	void AddComponent(BaseComponent* comp);
 
+	void SetDestroyCallBack(DestroyCallBack _destroyCallBack);
+
 	
 	
 private:
@@ -51,6 +58,8 @@ private:
 	Vect2 position;
 
 	bool bIsStatic= false;
+
+	DestroyCallBack destroyCallBack = nullptr;
 
 	
 };

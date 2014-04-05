@@ -63,3 +63,13 @@ TextComponent* GameObjectFactory::AddTextComponent(GameObject* owner, char* text
 
 	return textComp;
 }
+
+void GameObjectFactory::DestroyActor(GameObject* actor)
+{
+	
+}
+
+void GameObjectFactory::DestoryComponent(BaseComponent* comp)
+{
+
+}

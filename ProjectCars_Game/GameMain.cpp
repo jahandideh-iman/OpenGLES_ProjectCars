@@ -34,8 +34,10 @@ void GameMain::OnCreation()
 	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this, Key_Up, inputCallBack(&GameMain::IncreaseSpeed));
 	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this, Key_Down, inputCallBack(&GameMain::DecreaseSpeed));
 
-	GameObjectFactory::CreateActor<WorkInProgressGUI>()->SetPosition(400,300);
+	//GameObjectFactory::CreateActor<WorkInProgressGUI>()->SetPosition(400,300);
 
+
+	diffController = (DifficultyController*)GameObjectFactory::CreateActor<DifficultyController>();
 	//OpenGLRenderer::GetRenderer()->RegisterOnReleaseKey(this, Key_Up, inputCallBack(&PlayerCar::Stop));
 	//OpenGLRenderer::GetRenderer()->RegisterOnReleaseKey(this, Key_Down, inputCallBack(&PlayerCar::Stop));
 

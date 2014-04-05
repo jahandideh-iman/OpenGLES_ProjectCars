@@ -29,3 +29,7 @@ Vect2 BaseComponent::GetPosition()
 	return position;
 }
 
+void BaseComponent::Destroy()
+{
+	delete this;
+}

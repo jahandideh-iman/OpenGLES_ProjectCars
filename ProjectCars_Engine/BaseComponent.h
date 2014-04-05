@@ -21,6 +21,7 @@ public:
 
 	Vect2 GetPosition();
 
+	virtual void Destroy();
 
 protected: 
 	BaseComponent();

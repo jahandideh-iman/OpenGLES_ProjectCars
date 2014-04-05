@@ -33,6 +33,12 @@
     <ClInclude Include="WorkInProgressGUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AICar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DifficultyController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseCar.cpp">
@@ -54,6 +60,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WorkInProgressGUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AICar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DifficultyController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
