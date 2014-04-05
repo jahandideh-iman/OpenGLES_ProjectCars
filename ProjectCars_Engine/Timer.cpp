@@ -43,10 +43,8 @@ void Timer::CheckTimer(int registerIndex, float dt)
 	timerRegister.elapsedTime += dt;
 	if (timerRegister.elapsedTime >= timerRegister.duration)
 	{
-		CALL_MEMBER_FN(timerRegister.callBackInfo.first, timerRegister.callBackInfo.second);
+		CALL_MEMBER_FN(timerRegister.callBackInfo.first, timerRegister.callBackInfo.second)();
 		timerRegisters.erase(timerRegisters.begin() + registerIndex);
 	}
-
-	
 }
 
