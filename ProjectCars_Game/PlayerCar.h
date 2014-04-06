@@ -1,10 +1,14 @@
 #pragma once
 #include "BaseCar.h"
+
+
+
+
 class PlayerCar :
 	public BaseCar
 {
 public:
-	PlayerCar();
+	//PlayerCar();
 	~PlayerCar();
 
 	void GoLeft();
@@ -15,5 +19,12 @@ public:
 
 	void Stop();
 	void OnCreation() override;
+
+
+private:
+
+	
+
+	
 };
 

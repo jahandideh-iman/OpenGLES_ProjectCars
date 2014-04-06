@@ -18,7 +18,7 @@ bool TextComponent::Load()
 		std::cout << "Could not init freetype library" << std::endl;
 
 
-	if (FT_New_Face(freeTypeLibarary, "Assets/timesbi.ttf", 0, &face))
+	if (FT_New_Face(freeTypeLibarary, "../Assets/EngineAssets/timesbi.ttf", 0, &face))
 		std::cout << "Could not open font" << std::endl;
 
 	FT_Set_Pixel_Sizes(face, 0, 48);
@@ -26,7 +26,7 @@ bool TextComponent::Load()
 
 	auto hr = this->vShader->LoadFromFile(
 		GL_VERTEX_SHADER,
-		"Assets/Text_VShader.txt");
+		"../Assets/EngineAssets/Text_VShader.txt");
 	if (!hr)
 	{
 		cout << "Error on loading vertex shader" << endl;
@@ -36,7 +36,7 @@ bool TextComponent::Load()
 	//the fragment shader returns the color of pixel
 	hr = this->fShader->LoadFromFile(
 		GL_FRAGMENT_SHADER,
-		"Assets/Text_FShader.txt");
+		"../Assets/EngineAssets/Text_FShader.txt");
 	if (!hr)
 	{
 		cout << "Error on loading fragment shader" << endl;

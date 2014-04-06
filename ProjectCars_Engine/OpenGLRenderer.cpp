@@ -110,6 +110,24 @@ void OpenGLRenderer::AddGameObject(GameObject* obj)
 	gameObjects.push_back(obj);
 }
 
+void OpenGLRenderer::RemoveGameObject(GameObject* obj)
+{
+	int index = -1; 
+	for (int i = 0; i < gameObjects.size(); ++i)
+	{
+		if (gameObjects[i] == obj)
+		{
+			index = i;
+			break;
+		}
+	}
+
+	if (index == -1)
+		return;
+
+	gameObjects.erase(gameObjects.begin() + index);
+}
+
 void  OpenGLRenderer::AddRenderableComponent(RenderableComponent* comp)
 {
 	AddRenderableComponentWithLinearInsertion(comp);
@@ -132,6 +150,51 @@ void OpenGLRenderer::AddRenderableComponentWithLinearInsertion(RenderableCompone
 void OpenGLRenderer::AddCollisionComponent(CollisionComponent* collision)
 {
 	collisionComponents.push_back(collision);
+}
+
+void OpenGLRenderer::RemoveComponent(BaseComponent* comp)
+{
+	if (dynamic_cast<RenderableComponent*>(comp) != nullptr)
+		RemoveRenderableComponent((RenderableComponent*)comp);
+
+	else if (dynamic_cast<CollisionComponent*>(comp) != nullptr)
+		RemoveCollisionComponent((CollisionComponent*)comp);
+}
+
+void OpenGLRenderer::RemoveCollisionComponent(CollisionComponent* comp)
+{
+	int index = -1;
+	for (int i = 0; i < collisionComponents.size(); ++i)
+	{
+		if (collisionComponents[i] == comp)
+		{
+			index = i;
+			break;
+		}
+	}
+
+	if (index == -1)
+		return;
+
+	collisionComponents.erase(collisionComponents.begin() + index);
+}
+
+void OpenGLRenderer::RemoveRenderableComponent(RenderableComponent* comp)
+{
+	int index = -1;
+	for (int i = 0; i < renderableComponents.size(); ++i)
+	{
+		if (renderableComponents[i] == comp)
+		{
+			index = i;
+			break;
+		}
+	}
+
+	if (index == -1)
+		return;
+
+	renderableComponents.erase(renderableComponents.begin() + index);
 }
 
 void OpenGLRenderer::RegisterOnPressKey(GameObject* _obj, EInputKey _key, inputCallBack _callBack)

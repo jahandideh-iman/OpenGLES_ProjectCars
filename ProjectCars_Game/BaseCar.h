@@ -4,7 +4,8 @@
 class BaseCar: public GameObject
 {
 public:
-	~BaseCar();
+	virtual ~BaseCar();
+
 private:
 
 

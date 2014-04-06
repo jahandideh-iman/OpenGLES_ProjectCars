@@ -9,6 +9,8 @@ class GameObjectFactory;
 
 class BaseComponent
 {
+	typedef void(*DestroyCallBack)(BaseComponent*);
+
 	friend GameObjectFactory;
 public:
 	
@@ -22,6 +24,10 @@ public:
 	Vect2 GetPosition();
 
 	virtual void Destroy();
+	virtual void OnDestroy();
+
+	void SetDestroyCallBack(DestroyCallBack _destroyCallBack);
+
 
 protected: 
 	BaseComponent();
@@ -30,6 +36,8 @@ private:
 	GameObject* owner;
 
 	Vect2 position;
+
+	DestroyCallBack destroyCallBack = nullptr;
 
 };
 

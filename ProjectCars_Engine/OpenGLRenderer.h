@@ -27,9 +27,11 @@ public:
 	static OpenGLRenderer* GetRenderer();
 
 	void AddGameObject(GameObject* obj);
+	void RemoveGameObject(GameObject* obj);
 
 	void AddRenderableComponent(RenderableComponent* renderable);
 	void AddCollisionComponent(CollisionComponent* collision);
+	void RemoveComponent(BaseComponent * comp);
 
 	void RegisterOnPressKey(GameObject* _obj, EInputKey _key, inputCallBack _callBack);
 	void RegisterOnReleaseKey(GameObject* _obj, EInputKey _key, inputCallBack _callBack);
@@ -48,6 +50,9 @@ private:
 	void ResolveCollision(CollisionComponent* col1, CollisionComponent* col2, CollisionInfo &colInfo);
 
 	void AddRenderableComponentWithLinearInsertion(RenderableComponent* renderable);
+
+	void RemoveRenderableComponent(RenderableComponent* comp);
+	void RemoveCollisionComponent(CollisionComponent* comp);
 
 	void Release();
 

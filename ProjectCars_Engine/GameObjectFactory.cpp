@@ -20,6 +20,7 @@ SpriteComponent* GameObjectFactory::AddSpiteComponent(GameObject* owner, char* s
 	owner->AddComponent(sprite);
 
 	sprite->SetPosition(owner->GetPosition());
+	sprite->SetDestroyCallBack(GameObjectFactory::DestoryComponent);
 
 	OpenGLRenderer::GetRenderer()->AddRenderableComponent(sprite);
 	return sprite;
@@ -33,6 +34,7 @@ void GameObjectFactory::AddDebugRectangleComponent(GameObject* owner, Rect rec)
 	owner->AddComponent(rectangle);
 
 	rectangle->SetPosition(owner->GetPosition());
+	rectangle->SetDestroyCallBack(GameObjectFactory::DestoryComponent);
 
 	OpenGLRenderer::GetRenderer()->AddRenderableComponent(rectangle);
 }
@@ -44,6 +46,8 @@ void GameObjectFactory::AddCollisionComponent(GameObject* owner, Rect collisionR
 	owner->AddComponent(col);
 
 	col->SetPosition(owner->GetPosition());
+	col->SetDestroyCallBack(GameObjectFactory::DestoryComponent);
+
 
 	OpenGLRenderer::GetRenderer()->AddCollisionComponent(col);
 }
@@ -58,6 +62,8 @@ TextComponent* GameObjectFactory::AddTextComponent(GameObject* owner, char* text
 	owner->AddComponent(textComp);
 
 	textComp->SetPosition(owner->GetPosition());
+	textComp->SetDestroyCallBack(GameObjectFactory::DestoryComponent);
+
 
 	OpenGLRenderer::GetRenderer()->AddRenderableComponent(textComp);
 
@@ -66,10 +72,21 @@ TextComponent* GameObjectFactory::AddTextComponent(GameObject* owner, char* text
 
 void GameObjectFactory::DestroyActor(GameObject* actor)
 {
-	
+	OpenGLRenderer::GetRenderer()->RemoveGameObject(actor);
+	actor->OnDestroy();
+
+	delete actor;
+
 }
 
 void GameObjectFactory::DestoryComponent(BaseComponent* comp)
 {
+	OpenGLRenderer::GetRenderer()->RemoveComponent(comp);
+	GameObject * owner = comp->GetOwner();
 
+	owner->RemoveComponent(comp);
+
+	comp->OnDestroy();
+	delete comp;
+	comp = nullptr;
 }

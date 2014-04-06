@@ -33,6 +33,7 @@ public:
 
 	static void DestroyActor(GameObject* actor);
 	static void DestoryComponent(BaseComponent* component);
+	static bool IsStoredInEngine(BaseComponent* comp);
 
 private:
 	

@@ -29,9 +29,13 @@ void GameObject::Destroy()
 		componets[0]->Destroy();
 
 	assert(destroyCallBack != nullptr);
-
 	destroyCallBack(this);
 	
+}
+
+void GameObject::OnDestroy()
+{
+	std::cout << "OnDestroy" << std::endl;
 }
 
 void GameObject::SetDestroyCallBack(DestroyCallBack _destroyCallBack)
@@ -87,6 +91,23 @@ GameObject::~GameObject()
 void GameObject::AddComponent(BaseComponent * comp)
 {
 	componets.push_back(comp);
+}
+
+void GameObject::RemoveComponent(BaseComponent* comp)
+{
+	int index = -1; 
+	for (int i = 0; i < componets.size(); ++i)
+	{
+		if (componets[i] == comp)
+		{
+			index = i;
+			break;
+		}
+	}
+
+	if (index == -1)
+		return;
+	componets.erase(componets.begin() + index);
 }
 
 

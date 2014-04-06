@@ -3,19 +3,17 @@
 #include "OpenGLRenderer.h"
 
 
-PlayerCar::PlayerCar()
-{
-}
 
 
-PlayerCar::~PlayerCar()
+PlayerCar::~PlayerCar() 
 {
+	
 }
 
 void PlayerCar::OnCreation()
 {
 	SetStaticFlag(false);
-	GameObjectFactory::AddSpiteComponent(this, "Assets/Car.tga", 20)->SetOpaciyColor(1, 1, 1);
+	GameObjectFactory::AddSpiteComponent(this, "../Assets/GameAssets/Car.tga", 20)->SetOpaciyColor(1, 1, 1);
 	GameObjectFactory::AddCollisionComponent(this, Rect(50, 50),Phys_Blocking);
 	GameObjectFactory::AddDebugRectangleComponent(this, Rect(50, 50));
 
@@ -23,13 +21,11 @@ void PlayerCar::OnCreation()
 	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this,Key_Right, inputCallBack(&PlayerCar::GoRight));
 
 
-
 	OpenGLRenderer::GetRenderer()->RegisterOnReleaseKey(this, Key_Right, inputCallBack(&PlayerCar::Stop));
 	OpenGLRenderer::GetRenderer()->RegisterOnReleaseKey(this, Key_Left, inputCallBack(&PlayerCar::Stop));
 
-
-
 }
+
 
 void PlayerCar::GoLeft()
 {
@@ -59,3 +55,6 @@ void PlayerCar::Stop()
 {
 	SetVelocity(0,0);
 }
+
+
+

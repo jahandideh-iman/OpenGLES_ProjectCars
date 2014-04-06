@@ -22,7 +22,7 @@ bool DebugRectangleComponent::Load(Size size)
 	//When we defined a variable as an a
 	auto hr = this->vShader->LoadFromFile(
 		GL_VERTEX_SHADER,
-		"Assets/Rect_VShader.txt");
+		"../Assets/EngineAssets/Rect_VShader.txt");
 	if (!hr)
 	{
 		cout << "Error on loading vertex shader" << endl;
@@ -31,7 +31,7 @@ bool DebugRectangleComponent::Load(Size size)
 
 	//the fragment shader returns the color of pixel
 	hr = this->fShader->LoadFromFile(GL_FRAGMENT_SHADER,
-		"Assets/Rect_FShader.txt");
+		"../Assets/EngineAssets/Rect_FShader.txt");
 	if (!hr)
 	{
 		cout << "Error on loading fragment shader" << endl;

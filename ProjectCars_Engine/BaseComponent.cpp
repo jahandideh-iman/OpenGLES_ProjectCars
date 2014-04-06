@@ -1,4 +1,5 @@
 #include "BaseComponent.h"
+#include <cassert>
 
 BaseComponent::BaseComponent()
 {
@@ -31,5 +32,17 @@ Vect2 BaseComponent::GetPosition()
 
 void BaseComponent::Destroy()
 {
-	delete this;
+	assert(destroyCallBack != nullptr);
+	destroyCallBack(this);
+	
+}
+
+void BaseComponent::OnDestroy()
+{
+
+}
+
+void BaseComponent::SetDestroyCallBack(DestroyCallBack _destroyCallBack)
+{
+	destroyCallBack = _destroyCallBack;
 }

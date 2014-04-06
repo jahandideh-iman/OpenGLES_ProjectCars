@@ -223,4 +223,11 @@ static float GetRandom()
 	return float(rand()) / RAND_MAX;
 }
 
+static float clamp(float x, float a, float b)
+{
+
+	return x < a ? a : (x > b ? b : x);
+
+}
+
 #define CALL_MEMBER_FN(object,ptrToMember)  ((object)->*(ptrToMember))

@@ -13,10 +13,12 @@ typedef std::pair<GameObject*, inputCallBack> CallBackInfo;
 
 typedef std::vector<BaseComponent*> Components;
 
-typedef void(*DestroyCallBack)(GameObject*);
+
 
 class GameObject
 {
+	typedef void(*DestroyCallBack)(GameObject*);
+
 	friend GameObjectFactory;
 public:
 	
@@ -26,7 +28,8 @@ public:
 	virtual void OnCreation();
 	virtual void OnCollision(GameObject* other);
 
-	virtual void Destroy();
+	void Destroy();
+	virtual void OnDestroy();
 
 	void SetPosition(Vect2 _position);
 	void SetPosition(int xPos, int yPos);
@@ -46,6 +49,7 @@ protected:
 	void ProcessMove(float dt);
 private:
 	void AddComponent(BaseComponent* comp);
+	void RemoveComponent(BaseComponent* comp);
 
 	void SetDestroyCallBack(DestroyCallBack _destroyCallBack);
 

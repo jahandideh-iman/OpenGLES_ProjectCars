@@ -1,0 +1,955 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+  dslVersion="1.0.0.0"
+  Id="c70755fc-a887-47e0-92cc-095f37032205"
+  name="DestroySequence" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction
+        Id="5c030408-d5ea-4ffc-9576-343de3521265"
+        name="Sequence1"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <fragments>
+          <behaviorExecutionSpecification
+            Id="a6c6d81f-6911-44ac-a966-f57f6dbb5b75"
+            name="BehaviorExecutionSpecification1">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="19bcbea5-1a53-4d51-9128-9d58943e668f"
+                LastKnownName="Actor"
+                LastKnownLocation="DestroySequence.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="01391fd8-042c-4d24-bbf8-76640b1982d7"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="DestroySequence.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="9c3f4764-f040-43bd-a963-10fd03d5b67f"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="DestroySequence.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="fc768416-2381-4343-bdbb-6bb77ac83e59"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="DestroySequence.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="328e7e59-a330-4d42-8126-a64d704d0ddd"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="DestroySequence.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="a8852a9b-11ab-4072-aeaf-c9d58e784751"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="DestroySequence.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="f8215352-64ba-419a-8d4c-dda9071361a3"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="DestroySequence.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="f1b55f40-8ce0-44c9-b733-a01f2eafe524"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="DestroySequence.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="9c3f4764-f040-43bd-a963-10fd03d5b67f"
+            name="ExecutionOccurrenceSpecification1">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="dd07eba5-ad24-4303-8c7f-53292ed33dc6"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="19bcbea5-1a53-4d51-9128-9d58943e668f"
+                LastKnownName="Actor"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <lostFoundTarget
+            Id="ccb4baab-9fe8-40da-ac64-bacc431bd0fb"
+            name="LostFoundTarget1" />
+          <messageOccurrenceSpecification
+            Id="fc768416-2381-4343-bdbb-6bb77ac83e59"
+            name="MessageOccurrenceSpecification1">
+            <covered>
+              <lifelineMoniker
+                Id="19bcbea5-1a53-4d51-9128-9d58943e668f"
+                LastKnownName="Actor"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="f06baca6-17b7-468d-98ac-3325371217b8"
+            name="BehaviorExecutionSpecification5">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="cede000f-4e61-405c-9a01-195c4fcfd6d8"
+                LastKnownName="Component"
+                LastKnownLocation="DestroySequence.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="9ea8b3bd-8d23-4f71-826f-803915147d3c"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="DestroySequence.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="f774c09e-05e8-41fe-80e6-70d144ac83a2"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="DestroySequence.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="5e5d2ed8-8b7b-48a2-916b-e754db400fde"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="DestroySequence.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="92eb7746-c0fa-4785-87f0-ddd256bce622"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="DestroySequence.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="f774c09e-05e8-41fe-80e6-70d144ac83a2"
+            name="ExecutionOccurrenceSpecification9">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="ea961355-9353-4668-a827-12595de3f4a2"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="cede000f-4e61-405c-9a01-195c4fcfd6d8"
+                LastKnownName="Component"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="328e7e59-a330-4d42-8126-a64d704d0ddd"
+            name="MessageOccurrenceSpecification8">
+            <covered>
+              <lifelineMoniker
+                Id="19bcbea5-1a53-4d51-9128-9d58943e668f"
+                LastKnownName="Actor"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="5e5d2ed8-8b7b-48a2-916b-e754db400fde"
+            name="MessageOccurrenceSpecification9">
+            <covered>
+              <lifelineMoniker
+                Id="cede000f-4e61-405c-9a01-195c4fcfd6d8"
+                LastKnownName="Component"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="378495f1-c253-4850-8e18-116745f3c94c"
+            name="BehaviorExecutionSpecification6">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="9bfd3939-f823-4e14-8bc5-b06d8768317b"
+                LastKnownName="GameFactory"
+                LastKnownLocation="DestroySequence.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="05c1272f-e37e-43cb-939c-4873b4b1c2a4"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="DestroySequence.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="223afd67-55f2-4eb8-a4ad-fe0dfc47a0ea"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="DestroySequence.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="0b9d7137-b9a8-4fb4-b3cc-ea0defe8ddd3"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="DestroySequence.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="6f1659fa-8946-4066-b8ee-e994349e690b"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="DestroySequence.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="572dbbfb-d549-4246-bf84-a943188e1b99"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="DestroySequence.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="223afd67-55f2-4eb8-a4ad-fe0dfc47a0ea"
+            name="ExecutionOccurrenceSpecification11">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="0aa1eb21-5a16-4b5c-8c57-5af1ef35130a"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="9bfd3939-f823-4e14-8bc5-b06d8768317b"
+                LastKnownName="GameFactory"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="92eb7746-c0fa-4785-87f0-ddd256bce622"
+            name="MessageOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="cede000f-4e61-405c-9a01-195c4fcfd6d8"
+                LastKnownName="Component"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="0b9d7137-b9a8-4fb4-b3cc-ea0defe8ddd3"
+            name="MessageOccurrenceSpecification11">
+            <covered>
+              <lifelineMoniker
+                Id="9bfd3939-f823-4e14-8bc5-b06d8768317b"
+                LastKnownName="GameFactory"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="4698fe56-17b6-4717-a22b-af2214ce9fe8"
+            name="BehaviorExecutionSpecification7">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="19bcbea5-1a53-4d51-9128-9d58943e668f"
+                LastKnownName="Actor"
+                LastKnownLocation="DestroySequence.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="f8215352-64ba-419a-8d4c-dda9071361a3"
+                LastKnownName="ExecutionOccurrenceSpecification14"
+                LastKnownLocation="DestroySequence.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="a8852a9b-11ab-4072-aeaf-c9d58e784751"
+                LastKnownName="ExecutionOccurrenceSpecification13"
+                LastKnownLocation="DestroySequence.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="c600c758-8df9-4438-bdae-be1594bc3fb8"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="DestroySequence.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="a8852a9b-11ab-4072-aeaf-c9d58e784751"
+            name="ExecutionOccurrenceSpecification13">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="a4bd387e-667b-4abd-8dbc-a26727d443d4"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="19bcbea5-1a53-4d51-9128-9d58943e668f"
+                LastKnownName="Actor"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="9ea8b3bd-8d23-4f71-826f-803915147d3c"
+            name="ExecutionOccurrenceSpecification10">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="d80e38eb-2f14-4b14-8150-f4ff971bcc8d"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="cede000f-4e61-405c-9a01-195c4fcfd6d8"
+                LastKnownName="Component"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="c600c758-8df9-4438-bdae-be1594bc3fb8"
+            name="MessageOccurrenceSpecification13">
+            <covered>
+              <lifelineMoniker
+                Id="19bcbea5-1a53-4d51-9128-9d58943e668f"
+                LastKnownName="Actor"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="6f1659fa-8946-4066-b8ee-e994349e690b"
+            name="MessageOccurrenceSpecification12">
+            <covered>
+              <lifelineMoniker
+                Id="9bfd3939-f823-4e14-8bc5-b06d8768317b"
+                LastKnownName="GameFactory"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="be61cc8b-505d-48e5-a828-1c82c925c76c"
+            name="BehaviorExecutionSpecification8">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="ff2ad647-5322-4a86-a2a9-dbb68216616b"
+                LastKnownName="Engine"
+                LastKnownLocation="DestroySequence.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="83c8573e-6e96-433f-8032-4b6f3d666641"
+                LastKnownName="ExecutionOccurrenceSpecification16"
+                LastKnownLocation="DestroySequence.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="ddd3f675-546b-49a0-b49a-804e149921a4"
+                LastKnownName="ExecutionOccurrenceSpecification15"
+                LastKnownLocation="DestroySequence.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="7bcab467-4dcd-42ef-a9b0-964501fabd29"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="DestroySequence.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="ddd3f675-546b-49a0-b49a-804e149921a4"
+            name="ExecutionOccurrenceSpecification15">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="64a9f0c9-b934-4fd4-b133-8db4fdbf10b0"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="ff2ad647-5322-4a86-a2a9-dbb68216616b"
+                LastKnownName="Engine"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="7bcab467-4dcd-42ef-a9b0-964501fabd29"
+            name="MessageOccurrenceSpecification15">
+            <covered>
+              <lifelineMoniker
+                Id="ff2ad647-5322-4a86-a2a9-dbb68216616b"
+                LastKnownName="Engine"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="572dbbfb-d549-4246-bf84-a943188e1b99"
+            name="MessageOccurrenceSpecification14">
+            <covered>
+              <lifelineMoniker
+                Id="9bfd3939-f823-4e14-8bc5-b06d8768317b"
+                LastKnownName="GameFactory"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="f8215352-64ba-419a-8d4c-dda9071361a3"
+            name="ExecutionOccurrenceSpecification14">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="88b1ec56-30c2-4c4d-afad-285d7c457f07"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="19bcbea5-1a53-4d51-9128-9d58943e668f"
+                LastKnownName="Actor"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="05c1272f-e37e-43cb-939c-4873b4b1c2a4"
+            name="ExecutionOccurrenceSpecification12">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="7488505b-a349-4d52-8ec8-5a0e802dda29"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="9bfd3939-f823-4e14-8bc5-b06d8768317b"
+                LastKnownName="GameFactory"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="83c8573e-6e96-433f-8032-4b6f3d666641"
+            name="ExecutionOccurrenceSpecification16">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="eea5e4b2-9b41-4cf9-b166-7ad88372b5dc"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="ff2ad647-5322-4a86-a2a9-dbb68216616b"
+                LastKnownName="Engine"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="4115989e-065e-4e21-b29f-a88d1c519d9c"
+            name="BehaviorExecutionSpecification2">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="9bfd3939-f823-4e14-8bc5-b06d8768317b"
+                LastKnownName="GameFactory"
+                LastKnownLocation="DestroySequence.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="ebeae006-2008-4574-bf05-64c46b968f5c"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="DestroySequence.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="d4a67e40-818a-4616-8448-74a638d1c3a9"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="DestroySequence.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="b0e34221-93bb-4c70-9647-a893c04a18a1"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="DestroySequence.uml" />
+              <messageOccurrenceSpecificationMoniker
+                Id="4d703ce1-7276-4494-bfdc-d0e80671bb25"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="DestroySequence.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="d4a67e40-818a-4616-8448-74a638d1c3a9"
+            name="ExecutionOccurrenceSpecification3">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="a2e2da9a-5cad-4c6c-b1e4-0a84747b838e"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="9bfd3939-f823-4e14-8bc5-b06d8768317b"
+                LastKnownName="GameFactory"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="b0e34221-93bb-4c70-9647-a893c04a18a1"
+            name="MessageOccurrenceSpecification3">
+            <covered>
+              <lifelineMoniker
+                Id="9bfd3939-f823-4e14-8bc5-b06d8768317b"
+                LastKnownName="GameFactory"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="f1b55f40-8ce0-44c9-b733-a01f2eafe524"
+            name="MessageOccurrenceSpecification2">
+            <covered>
+              <lifelineMoniker
+                Id="19bcbea5-1a53-4d51-9128-9d58943e668f"
+                LastKnownName="Actor"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <behaviorExecutionSpecification
+            Id="c03b8f42-bc6d-4730-b51f-f8317df35d8b"
+            name="BehaviorExecutionSpecification3">
+            <coveredLifelines>
+              <lifelineMoniker
+                Id="ff2ad647-5322-4a86-a2a9-dbb68216616b"
+                LastKnownName="Engine"
+                LastKnownLocation="DestroySequence.uml" />
+            </coveredLifelines>
+            <finish>
+              <executionOccurrenceSpecificationMoniker
+                Id="ab3b12da-09c1-4d7e-a9c7-a8ebf425d089"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="DestroySequence.uml" />
+            </finish>
+            <start>
+              <executionOccurrenceSpecificationMoniker
+                Id="be5b4e78-1f24-4511-b007-5fb7e32ec3a9"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="DestroySequence.uml" />
+            </start>
+            <nestedOccurrences>
+              <messageOccurrenceSpecificationMoniker
+                Id="7795367a-16c7-448d-8e21-d6b6910f0178"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="DestroySequence.uml" />
+            </nestedOccurrences>
+          </behaviorExecutionSpecification>
+          <executionOccurrenceSpecification
+            Id="be5b4e78-1f24-4511-b007-5fb7e32ec3a9"
+            name="ExecutionOccurrenceSpecification5">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="2340e0b6-dc3b-4fc8-b120-751a2ab30970"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="ff2ad647-5322-4a86-a2a9-dbb68216616b"
+                LastKnownName="Engine"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="01391fd8-042c-4d24-bbf8-76640b1982d7"
+            name="ExecutionOccurrenceSpecification2">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="175d19e4-7d4e-4d87-9e1a-fc4adafd46d7"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="19bcbea5-1a53-4d51-9128-9d58943e668f"
+                LastKnownName="Actor"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="4d703ce1-7276-4494-bfdc-d0e80671bb25"
+            name="MessageOccurrenceSpecification4">
+            <covered>
+              <lifelineMoniker
+                Id="9bfd3939-f823-4e14-8bc5-b06d8768317b"
+                LastKnownName="GameFactory"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="7795367a-16c7-448d-8e21-d6b6910f0178"
+            name="MessageOccurrenceSpecification5">
+            <covered>
+              <lifelineMoniker
+                Id="ff2ad647-5322-4a86-a2a9-dbb68216616b"
+                LastKnownName="Engine"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="ebeae006-2008-4574-bf05-64c46b968f5c"
+            name="ExecutionOccurrenceSpecification4">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="3e53f11e-4a1a-427a-9bad-158ba89b1f2b"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="9bfd3939-f823-4e14-8bc5-b06d8768317b"
+                LastKnownName="GameFactory"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+          <executionOccurrenceSpecification
+            Id="ab3b12da-09c1-4d7e-a9c7-a8ebf425d089"
+            name="ExecutionOccurrenceSpecification6">
+            <event>
+              <executionOccurrenceSpecificationReferencesEvent>
+                <executionEventMoniker
+                  Id="61f15658-c873-40d9-90ea-6601fe75a216"
+                  LastKnownName="ExecutionEvent"
+                  LastKnownLocation="DestroySequence.uml" />
+              </executionOccurrenceSpecificationReferencesEvent>
+            </event>
+            <covered>
+              <lifelineMoniker
+                Id="ff2ad647-5322-4a86-a2a9-dbb68216616b"
+                LastKnownName="Engine"
+                LastKnownLocation="DestroySequence.uml" />
+            </covered>
+          </executionOccurrenceSpecification>
+        </fragments>
+        <lifelines>
+          <lifeline
+            Id="19bcbea5-1a53-4d51-9128-9d58943e668f"
+            name="Actor"
+            isActor="false"
+            lifelineDisplayName="Actor">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="9c3f4764-f040-43bd-a963-10fd03d5b67f"
+                LastKnownName="ExecutionOccurrenceSpecification1"
+                LastKnownLocation="DestroySequence.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="01391fd8-042c-4d24-bbf8-76640b1982d7"
+                LastKnownName="ExecutionOccurrenceSpecification2"
+                LastKnownLocation="DestroySequence.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="9bfd3939-f823-4e14-8bc5-b06d8768317b"
+            name="GameFactory"
+            isActor="false"
+            lifelineDisplayName="GameFactory">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="223afd67-55f2-4eb8-a4ad-fe0dfc47a0ea"
+                LastKnownName="ExecutionOccurrenceSpecification11"
+                LastKnownLocation="DestroySequence.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="05c1272f-e37e-43cb-939c-4873b4b1c2a4"
+                LastKnownName="ExecutionOccurrenceSpecification12"
+                LastKnownLocation="DestroySequence.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="d4a67e40-818a-4616-8448-74a638d1c3a9"
+                LastKnownName="ExecutionOccurrenceSpecification3"
+                LastKnownLocation="DestroySequence.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="ebeae006-2008-4574-bf05-64c46b968f5c"
+                LastKnownName="ExecutionOccurrenceSpecification4"
+                LastKnownLocation="DestroySequence.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="cede000f-4e61-405c-9a01-195c4fcfd6d8"
+            name="Component"
+            isActor="false"
+            lifelineDisplayName="Component">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="f774c09e-05e8-41fe-80e6-70d144ac83a2"
+                LastKnownName="ExecutionOccurrenceSpecification9"
+                LastKnownLocation="DestroySequence.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="9ea8b3bd-8d23-4f71-826f-803915147d3c"
+                LastKnownName="ExecutionOccurrenceSpecification10"
+                LastKnownLocation="DestroySequence.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+          <lifeline
+            Id="ff2ad647-5322-4a86-a2a9-dbb68216616b"
+            name="Engine"
+            isActor="false"
+            lifelineDisplayName="Engine">
+            <topLevelOccurrences>
+              <executionOccurrenceSpecificationMoniker
+                Id="ddd3f675-546b-49a0-b49a-804e149921a4"
+                LastKnownName="ExecutionOccurrenceSpecification15"
+                LastKnownLocation="DestroySequence.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="83c8573e-6e96-433f-8032-4b6f3d666641"
+                LastKnownName="ExecutionOccurrenceSpecification16"
+                LastKnownLocation="DestroySequence.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="be5b4e78-1f24-4511-b007-5fb7e32ec3a9"
+                LastKnownName="ExecutionOccurrenceSpecification5"
+                LastKnownLocation="DestroySequence.uml" />
+              <executionOccurrenceSpecificationMoniker
+                Id="ab3b12da-09c1-4d7e-a9c7-a8ebf425d089"
+                LastKnownName="ExecutionOccurrenceSpecification6"
+                LastKnownLocation="DestroySequence.uml" />
+            </topLevelOccurrences>
+          </lifeline>
+        </lifelines>
+        <messages>
+          <message
+            Id="33dfb36a-e5ae-4309-b684-75aff18c2912"
+            name="Destory()"
+            messageKind="Found"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <lostFoundTargetMoniker
+                Id="ccb4baab-9fe8-40da-ac64-bacc431bd0fb"
+                LastKnownName="LostFoundTarget1"
+                LastKnownLocation="DestroySequence.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="fc768416-2381-4343-bdbb-6bb77ac83e59"
+                LastKnownName="MessageOccurrenceSpecification1"
+                LastKnownLocation="DestroySequence.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="36978fca-fe01-429a-a361-7cf49417db4f"
+            name="* Destory()"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="328e7e59-a330-4d42-8126-a64d704d0ddd"
+                LastKnownName="MessageOccurrenceSpecification8"
+                LastKnownLocation="DestroySequence.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="5e5d2ed8-8b7b-48a2-916b-e754db400fde"
+                LastKnownName="MessageOccurrenceSpecification9"
+                LastKnownLocation="DestroySequence.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="19fb8c98-1e5c-4984-a235-0435cdc25a27"
+            name="DestroyComp(comp)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="92eb7746-c0fa-4785-87f0-ddd256bce622"
+                LastKnownName="MessageOccurrenceSpecification10"
+                LastKnownLocation="DestroySequence.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="0b9d7137-b9a8-4fb4-b3cc-ea0defe8ddd3"
+                LastKnownName="MessageOccurrenceSpecification11"
+                LastKnownLocation="DestroySequence.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="1e73c3ec-d049-4229-a166-243e4462bea2"
+            name="RemoveComponent(comp)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="6f1659fa-8946-4066-b8ee-e994349e690b"
+                LastKnownName="MessageOccurrenceSpecification12"
+                LastKnownLocation="DestroySequence.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="c600c758-8df9-4438-bdae-be1594bc3fb8"
+                LastKnownName="MessageOccurrenceSpecification13"
+                LastKnownLocation="DestroySequence.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="48e9c62c-2ee9-4ec3-b671-4d29952a6ade"
+            name="RemoveComponent(comp)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="572dbbfb-d549-4246-bf84-a943188e1b99"
+                LastKnownName="MessageOccurrenceSpecification14"
+                LastKnownLocation="DestroySequence.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="7bcab467-4dcd-42ef-a9b0-964501fabd29"
+                LastKnownName="MessageOccurrenceSpecification15"
+                LastKnownLocation="DestroySequence.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="4e19ef10-6643-4114-b801-f5b6e7e5a152"
+            name="DestoryActor(this)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="f1b55f40-8ce0-44c9-b733-a01f2eafe524"
+                LastKnownName="MessageOccurrenceSpecification2"
+                LastKnownLocation="DestroySequence.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="b0e34221-93bb-4c70-9647-a893c04a18a1"
+                LastKnownName="MessageOccurrenceSpecification3"
+                LastKnownLocation="DestroySequence.uml" />
+            </receiveEvent>
+          </message>
+          <message
+            Id="ffb59382-b71e-4127-8ad8-408808692bba"
+            name="RemoveActor(actor)"
+            messageKind="Complete"
+            messageSort="AsynchCall"
+            createSelfMessage="false">
+            <sendEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="4d703ce1-7276-4494-bfdc-d0e80671bb25"
+                LastKnownName="MessageOccurrenceSpecification4"
+                LastKnownLocation="DestroySequence.uml" />
+            </sendEvent>
+            <receiveEvent>
+              <messageOccurrenceSpecificationMoniker
+                Id="7795367a-16c7-448d-8e21-d6b6910f0178"
+                LastKnownName="MessageOccurrenceSpecification5"
+                LastKnownLocation="DestroySequence.uml" />
+            </receiveEvent>
+          </message>
+        </messages>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="dd07eba5-ad24-4303-8c7f-53292ed33dc6"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="175d19e4-7d4e-4d87-9e1a-fc4adafd46d7"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="a2e2da9a-5cad-4c6c-b1e4-0a84747b838e"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="3e53f11e-4a1a-427a-9bad-158ba89b1f2b"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="2340e0b6-dc3b-4fc8-b120-751a2ab30970"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="61f15658-c873-40d9-90ea-6601fe75a216"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="ea961355-9353-4668-a827-12595de3f4a2"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="d80e38eb-2f14-4b14-8150-f4ff971bcc8d"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="0aa1eb21-5a16-4b5c-8c57-5af1ef35130a"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="7488505b-a349-4d52-8ec8-5a0e802dda29"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="a4bd387e-667b-4abd-8dbc-a26727d443d4"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="88b1ec56-30c2-4c4d-afad-285d7c457f07"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="64a9f0c9-b934-4fd4-b133-8db4fdbf10b0"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <executionEvent
+        Id="eea5e4b2-9b41-4cf9-b166-7ad88372b5dc"
+        name="ExecutionEvent" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

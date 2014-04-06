@@ -23,7 +23,11 @@ void DifficultyController::OnCreation()
 void DifficultyController::AddAICar()
 {
 	AICar* tempCar = (AICar*)GameObjectFactory::CreateActor<AICar>();
-	tempCar->SetPosition(200, 600);
+
+	int xPos = spawnXPositions[int (GetRandom() * spawnXPositionsCount)];
+	std::cout << xPos << std::endl;
+
+	tempCar->SetPosition(xPos, 600);
 	tempCar->SetVelocity(0, -100);
 
 	timer->RegisterTimer(this, inputCallBack(&DifficultyController::AddAICar), 1 + GetRandom() * 6);

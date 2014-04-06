@@ -26,7 +26,7 @@ bool SpriteComponent::Load(char* spritePath)
 
 	auto hr = this->vShader->LoadFromFile(
 		GL_VERTEX_SHADER,
-		"Assets/Sprite_VShader.txt");
+		"../Assets/EngineAssets/Sprite_VShader.txt");
 	if (!hr)
 	{
 		cout << "Error on loading vertex shader" << endl;
@@ -36,7 +36,7 @@ bool SpriteComponent::Load(char* spritePath)
 	//the fragment shader returns the color of pixel
 	hr = this->fShader->LoadFromFile(
 		GL_FRAGMENT_SHADER,
-		"Assets/Sprite_FShader.txt");
+		"../Assets/EngineAssets/Sprite_FShader.txt");
 	if (!hr)
 	{
 		cout << "Error on loading fragment shader" << endl;
