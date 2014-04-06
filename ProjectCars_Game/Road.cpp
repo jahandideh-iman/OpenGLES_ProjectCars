@@ -16,37 +16,52 @@ void Road::OnCreation()
 {
 
 	SetSpeed(NORMAL_SPEED);
+	currentAccel = ACCEL_UP;
 	spriteComp = GameObjectFactory::AddSpiteComponent(this, "../Assets/GameAssets/road.tga", -100);
 
-	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this, Key_Up, inputCallBack(&Road::IncreaseSpeed));
-	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this, Key_Down, inputCallBack(&Road::DecreaseSpeed));
+	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this, Key_Down, inputCallBack(&Road::SpeedDown));
 
+	OpenGLRenderer::GetRenderer()->RegisterOnReleaseKey(this, Key_Down, inputCallBack(&Road::ReleaseSpeedDown));
 }
 
 void Road::SetSpeed(int _speed)
 {
-	speed = _speed;
+	currentSpeed = _speed;
 }
 
 void Road::Update(float dt)
 {
 	CalculateSpeed(dt);
-	spriteComp->AddTexCoord(0, speed*dt);
+
+	spriteComp->AddTexCoord(0, currentSpeed*dt);
 	
 }
 
 void Road::CalculateSpeed(float dt)
 {
-	speed += currentAccel*dt;
+	int calculatedSpeed = currentSpeed + currentAccel*dt;
+	
+	if (abs(currentSpeed - desiredSpeed) < abs(currentAccel*dt))
+		currentSpeed = desiredSpeed;
+	else
+		currentSpeed += currentAccel*dt;
 
-	speed = clamp(speed, MIN_SPEED, MAX_SPEED);
+	std::cout << currentSpeed << std::endl;
 }
-void Road::IncreaseSpeed()
+
+
+
+
+void Road::SpeedDown()
 {
+	currentAccel = ACCEL_DOWN;
+	desiredSpeed = MIN_SPEED;
+}
+
+
+void Road::ReleaseSpeedDown()
+{
+	desiredSpeed = MAX_SPEED;
 	currentAccel = ACCEL_UP;
 }
 
-void Road::DecreaseSpeed()
-{
-	currentAccel = ACCEL_DOWN;
-}

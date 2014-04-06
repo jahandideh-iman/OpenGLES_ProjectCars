@@ -12,6 +12,7 @@
 class Road :
 	public GameObject
 {
+
 public:
 	Road();
 	~Road();
@@ -19,8 +20,8 @@ public:
 
 	void Update(float dt) override;
 
-	void IncreaseSpeed();
-	void DecreaseSpeed();
+	void SpeedDown();
+	void ReleaseSpeedDown();
 
 
 	
@@ -28,12 +29,16 @@ private:
 	void SetSpeed(int _speed);
 
 	void CalculateSpeed(float dt);
+	void CalculateAccel();
 
 private:
+
+	bool bIsSpeedingUp = false;
+	bool bIsSpeedingDown = false;
 	SpriteComponent* spriteComp;
 
-	int speed = 10;
+	int currentSpeed;
+	int desiredSpeed;
 	float currentAccel = 0;
-	float desiredAccel;
 };
 
