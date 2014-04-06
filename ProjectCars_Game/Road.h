@@ -3,7 +3,7 @@
 #include "SpriteComponent.h"
 
 #define ACCEL_UP 100
-#define ACCEL_DOWN -200
+#define ACCEL_DOWN -500
 
 #define NORMAL_SPEED 400.0
 #define MIN_SPEED 200.0
@@ -23,10 +23,12 @@ public:
 	void SpeedDown();
 	void ReleaseSpeedDown();
 
+	float GetSpeed();
+
 
 	
 private:
-	void SetSpeed(int _speed);
+	void SetSpeed(float _speed);
 
 	void CalculateSpeed(float dt);
 	void CalculateAccel();
@@ -37,8 +39,8 @@ private:
 	bool bIsSpeedingDown = false;
 	SpriteComponent* spriteComp;
 
-	int currentSpeed;
-	int desiredSpeed;
+	float currentSpeed;
+	float desiredSpeed;
 	float currentAccel = 0;
 };
 

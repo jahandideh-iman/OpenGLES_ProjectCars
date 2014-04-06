@@ -67,13 +67,13 @@ bool SpriteComponent::Load(char* spritePath)
 	auto vertices = unique_ptr<GLfloat[]>(new GLfloat[this->vertexBufferSize]
 	{
 		-0.5, -0.5f, 0.0f,	//Position0
-			0.0f, 0.0f,       //TexCoord0 
+			1.0f, 1.0f,       //TexCoord0 
 			0.5f, -0.5f, 0.0f,	//Position1
-			1.0f, 0.0f,        //TexCoord1
+			0.0f, 1.0f,        //TexCoord1
 			-0.5f, 0.5f, 0.0f,	//Position2
-			0.0f, 1.0f,         //TexCoord2
+			1.0f, 0.0f,         //TexCoord2
 			0.5f, 0.5f, 0.0f,	//Position3
-			1.0f, 1.0f         //TexCoord3
+			0.0f, 0.0f         //TexCoord3
 	});
 
 	Size size = texture2D->GetSize();

@@ -24,11 +24,15 @@ void Road::OnCreation()
 	OpenGLRenderer::GetRenderer()->RegisterOnReleaseKey(this, Key_Down, inputCallBack(&Road::ReleaseSpeedDown));
 }
 
-void Road::SetSpeed(int _speed)
+void Road::SetSpeed(float _speed)
 {
 	currentSpeed = _speed;
 }
 
+float Road::GetSpeed()
+{
+	return currentSpeed;
+}
 void Road::Update(float dt)
 {
 	CalculateSpeed(dt);
@@ -39,8 +43,6 @@ void Road::Update(float dt)
 
 void Road::CalculateSpeed(float dt)
 {
-	int calculatedSpeed = currentSpeed + currentAccel*dt;
-	
 	if (abs(currentSpeed - desiredSpeed) < abs(currentAccel*dt))
 		currentSpeed = desiredSpeed;
 	else
@@ -49,15 +51,11 @@ void Road::CalculateSpeed(float dt)
 	std::cout << currentSpeed << std::endl;
 }
 
-
-
-
 void Road::SpeedDown()
 {
 	currentAccel = ACCEL_DOWN;
 	desiredSpeed = MIN_SPEED;
 }
-
 
 void Road::ReleaseSpeedDown()
 {

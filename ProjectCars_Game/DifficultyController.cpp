@@ -27,8 +27,8 @@ void DifficultyController::AddAICar()
 	int xPos = spawnXPositions[int (GetRandom() * spawnXPositionsCount)];
 	std::cout << xPos << std::endl;
 
-	tempCar->SetPosition(xPos, 600);
-	tempCar->SetVelocity(0, -100);
+	tempCar->SetPosition(xPos, 800);
+	tempCar->SetBaseSpeed(300 + GetRandom() * 500);
 
 	timer->RegisterTimer(this, inputCallBack(&DifficultyController::AddAICar), 1 + GetRandom() * 6);
 }

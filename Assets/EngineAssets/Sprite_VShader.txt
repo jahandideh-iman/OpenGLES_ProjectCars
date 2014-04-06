@@ -16,7 +16,7 @@ void main()
 	gl_Position = pos;
 
 	vTexCoord = aTexCoord;
-	vTexCoord.xy += uTexCoord;
+	vTexCoord.xy -= uTexCoord;
 
 	vOpacityColor = uOpacityColor.rgb;
 }

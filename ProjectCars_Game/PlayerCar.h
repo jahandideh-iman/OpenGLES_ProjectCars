@@ -14,8 +14,7 @@ public:
 	void GoLeft();
 	void GoRight();
 
-	void GoUp();
-	void GoDown();
+
 
 	void Stop();
 	void OnCreation() override;

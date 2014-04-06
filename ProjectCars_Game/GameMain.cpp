@@ -31,6 +31,9 @@ void GameMain::CreateRoad()
 
 	road = (Road*)GameObjectFactory::CreateActor<Road>();
 	road->SetPosition(400, 300);
+
+	AICar::InitialCarSprites();
+	AICar::road = road;
 }
 
 void GameMain::CreatePlayerCar()
