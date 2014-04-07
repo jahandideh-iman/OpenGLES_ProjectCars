@@ -82,6 +82,7 @@ void OpenGLRenderer::Render(ESContext* context)
 
 void OpenGLRenderer::Update(ESContext* contex, float dt)
 {
+	std::cout << "delta time " << dt << std::endl;
 	inputHandler->Update(dt);
 	for (int i = 0; i < gameObjects.size(); ++i)
 		gameObjects[i]->Update(dt);

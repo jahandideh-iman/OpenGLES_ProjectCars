@@ -33,12 +33,12 @@ float Road::GetSpeed()
 {
 	return currentSpeed;
 }
+
 void Road::Update(float dt)
 {
 	CalculateSpeed(dt);
 
-	spriteComp->AddTexCoord(0, currentSpeed*dt);
-	
+	spriteComp->AddTexCoord(0, currentSpeed*dt);	
 }
 
 void Road::CalculateSpeed(float dt)
@@ -48,7 +48,7 @@ void Road::CalculateSpeed(float dt)
 	else
 		currentSpeed += currentAccel*dt;
 
-	std::cout << currentSpeed << std::endl;
+	//std::cout << currentSpeed << std::endl;
 }
 
 void Road::SpeedDown()

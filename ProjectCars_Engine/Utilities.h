@@ -6,7 +6,7 @@
 
 struct Vect2
 {
-	int X, Y;
+	float X, Y;
 
 	Vect2()
 	{
@@ -14,7 +14,7 @@ struct Vect2
 		Y = 0; 
 	}
 
-	Vect2(int _x, int _y)
+	Vect2(float _x, float _y)
 	{
 		X = _x;
 		Y = _y;

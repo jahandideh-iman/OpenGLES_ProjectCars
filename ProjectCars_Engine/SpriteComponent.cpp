@@ -224,12 +224,12 @@ OpenGLKey SpriteComponent::GetKey()
 }
 
 
-void SpriteComponent::AddTexCoord(int xPixel, int yPixel)
+void SpriteComponent::AddTexCoord(float xPixel, float yPixel)
 {
 	Size size =  texture2D->GetSize();
 
-	texCoord[0] += float(xPixel) / size.width;
-	texCoord[1] += float(yPixel) / size.height;
+	texCoord[0] += xPixel / size.width;
+	texCoord[1] += yPixel / size.height;
 
 	if (texCoord[0] > 1)
 		texCoord[0] -= 1;

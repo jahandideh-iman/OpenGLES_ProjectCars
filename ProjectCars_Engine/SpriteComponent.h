@@ -17,7 +17,7 @@ public:
 	void Render();
 	void Release() override;
 
-	void AddTexCoord(int xPixel, int yPixel);
+	void AddTexCoord(float xPixel, float yPixel);
 	void SetOpaciyColor(float R, float G, float B);
 
 	OpenGLKey GetKey() override;

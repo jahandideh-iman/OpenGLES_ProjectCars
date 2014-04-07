@@ -13,9 +13,11 @@ AICar::AICar(): BaseCar()
 void AICar::InitialCarSprites()
 {
 	carSprites.clear();
-	carSprites.push_back("../Assets/GameAssets/Car2.tga");
-	carSprites.push_back("../Assets/GameAssets/Car3.tga");
 	carSprites.push_back("../Assets/GameAssets/Car4.tga");
+	carSprites.push_back("../Assets/GameAssets/Car5.tga");
+	carSprites.push_back("../Assets/GameAssets/Car6.tga");
+	carSprites.push_back("../Assets/GameAssets/Car7.tga");
+	carSprites.push_back("../Assets/GameAssets/Car9.tga");
 }
 
 
@@ -34,6 +36,7 @@ void AICar::OnCreation()
 void AICar::Update(float dt)
 {
 	BaseCar::Update(dt);
+
 	SetVelocity(0, baseSpeed - road->GetSpeed());
 	CheckOutOfScreen();
 }
