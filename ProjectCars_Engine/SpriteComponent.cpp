@@ -135,6 +135,8 @@ bool SpriteComponent::Load(char* spritePath)
 
 void SpriteComponent::Render()
 {
+	if (bIsHidden)
+		return;
 	//Draw the triangle using vertices
 	glUseProgram(programObject);
 

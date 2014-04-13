@@ -8,9 +8,10 @@ int main()
 {
 	OpenGLRenderer* engine = new OpenGLRenderer();
 
-	GameObjectFactory::CreateActor<GameMain>();
+	GameMain* gameMain =(GameMain*) GameObjectFactory::CreateActor<GameMain>();
 
 	GameGUI* gameGUI = (GameGUI*) GameObjectFactory::CreateActor<GameGUI>();
+	gameGUI->SetGame(gameMain);
 
 
 	engine->Start();

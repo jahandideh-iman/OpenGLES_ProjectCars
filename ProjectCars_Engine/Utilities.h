@@ -2,6 +2,7 @@
 
 
 #include <time.h>
+#include <string>
 
 
 struct Vect2
@@ -227,6 +228,12 @@ static float clamp(float x, float a, float b)
 {
 
 	return x < a ? a : (x > b ? b : x);
+
+}
+
+static std::string IntToText(int number)
+{
+	return std::to_string(number);
 
 }
 

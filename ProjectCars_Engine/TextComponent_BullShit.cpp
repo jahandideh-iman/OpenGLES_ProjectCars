@@ -12,12 +12,10 @@ TextComponent_BullShit::~TextComponent_BullShit()
 }
 
 
-void TextComponent_BullShit::SetText(char* _text)
+void TextComponent_BullShit::SetText(Text _text)
 {
 	text = _text;
 
-	
-		
 }
 
 
@@ -35,13 +33,18 @@ void TextComponent_BullShit::Render()
 {
 	int charIndex = 0;
 	TextObject* textObj;
+	SpriteComponent * textSprite;
 	while (text[charIndex] != '\0')
 	{
 		textObj = OpenGLRenderer::GetRenderer()->GetCharacterImage(text[charIndex]);
-
-		textObj->GetTextSprite()->SetPosition(GetPosition() + Vect2(charIndex * CHAR_WIDTH, 0));
-		textObj->GetTextSprite()->Render();
 		
+		textSprite = textObj->GetTextSprite();
+
+		textSprite->SetHidden(false);
+		textSprite->SetPosition(GetPosition() + Vect2(charIndex * CHAR_WIDTH, 0));
+		textSprite->Render();
+		textSprite->SetHidden(true);
+	
 		++charIndex;
 	}
 }

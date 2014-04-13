@@ -8,7 +8,9 @@ GameMain::~GameMain()
 
 void GameMain::Update(float dt)
 {
+	GameObject::Update(dt);
 
+	AddScore(road->GetSpeed() * dt / 100.0);
 }
 
 void GameMain::OnCreation()
@@ -17,9 +19,8 @@ void GameMain::OnCreation()
 	CreatePlayerCar();
 	CreateDifficultyController();
 
-	TextComponent_BullShit* textComp = GameObjectFactory::AddTextComponent(this, "ABA");
-	textComp->SetPosition(Vect2(200,300));
-	textComp->SetText("BB");
+
+	score = 0;
 
 
 }
@@ -51,4 +52,9 @@ void GameMain::CreatePlayerCar()
 void GameMain::CreateDifficultyController()
 {
 	diffController = (DifficultyController*)GameObjectFactory::CreateActor<DifficultyController>();
+}
+
+void GameMain::AddScore(float amount)
+{
+	score += amount;
 }

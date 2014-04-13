@@ -14,12 +14,14 @@ class GameMain: public GameObject
 
 	//THE FUCK IS THIS?
 public:
-	int score;
+	float score = 0;
 public:
 	~GameMain();
 
 	void Update(float dt) override;
 	void OnCreation() override;
+
+	void AddScore(float amount);
 
 
 private:

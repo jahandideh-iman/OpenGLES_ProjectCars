@@ -21,13 +21,15 @@ public:
 	RenderableComponent();
 	~RenderableComponent();
 
-	virtual void Render()=0;
+	virtual void Render() = 0;
 	virtual void Release();
 
 	virtual OpenGLKey GetKey();
 
 	int GetZOrder();
 	void SetZOrder(int _zOrder);
+
+	void SetHidden(bool _bHidden);
 
 
 protected:
@@ -45,8 +47,11 @@ protected:
 	std::unique_ptr<Shader> vShader;
 	std::unique_ptr<Shader> fShader;
 
+	bool bIsHidden = false;
+
 private:
 	int zOrder = 0;
+	
 
 
 };

@@ -63,3 +63,8 @@ int RenderableComponent::GetZOrder()
 {
 	return zOrder;
 }
+
+void RenderableComponent::SetHidden(bool _bHidden)
+{
+	bIsHidden = _bHidden;
+}

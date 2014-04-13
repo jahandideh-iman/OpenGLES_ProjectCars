@@ -6,6 +6,7 @@
 
 #define CHAR_WIDTH 16
 
+typedef std::string Text;
 typedef std::vector<TextObject*> TextObjects;
 
 class TextComponent_BullShit :
@@ -16,7 +17,7 @@ public:
 	TextComponent_BullShit();
 	~TextComponent_BullShit();
 
-	void SetText(char* _text);
+	void SetText(Text _text);
 
 
 	void SetPosition(Vect2 _pos) override;
@@ -26,6 +27,6 @@ public:
 
 private:
 
-	char* text = " ";
+	Text text = " ";
 };
 
