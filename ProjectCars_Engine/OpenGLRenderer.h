@@ -5,8 +5,10 @@
 #include "GameObject.h"
 #include "CollisionComponent.h"
 #include "WindowsInputHandler.h"
+#include "FontEngine.h"
 
 #include "Utilities.h"
+
 
 
 
@@ -38,6 +40,8 @@ public:
 
 	Size GetWindowSize();
 
+	char* GetCharacterImage(char key);
+
 	
 private:
 	void Initialize();
@@ -66,5 +70,7 @@ private:
 	GameObjects gameObjects;
 
 	WindowsInputHandler* inputHandler;
+
+	FontEngine * fontEngine;
 };
 

@@ -27,5 +27,7 @@ private:
 	FT_Face face;
 
 	GLuint tex;
+
+	
 };
 

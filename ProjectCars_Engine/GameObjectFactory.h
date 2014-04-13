@@ -5,6 +5,10 @@
 #include "DebugRectangleComponent.h"
 #include "OpenGLRenderer.h"
 #include "TextComponent.h"
+#include "TextComponent_BullShit.h"
+
+
+class TextComponent_BullShit;
 
 
 class GameObjectFactory
@@ -24,12 +28,13 @@ public:
 		return obj;
 	}
 
+
 	static SpriteComponent* AddSpiteComponent(GameObject* owner, char* spritePath, int zOrder = 0);
 	static void AddDebugRectangleComponent(GameObject* owner, Rect rec);
 
 	static void AddCollisionComponent(GameObject* owner, Rect collisionRec, EPhysicsType physType);
 
-	static TextComponent* AddTextComponent(GameObject* owner, char * text, int zOrder = 0);
+	static TextComponent_BullShit* AddTextComponent(GameObject* owner, char * text, int zOrder = 0);
 
 	static void DestroyActor(GameObject* actor);
 	static void DestoryComponent(BaseComponent* component);

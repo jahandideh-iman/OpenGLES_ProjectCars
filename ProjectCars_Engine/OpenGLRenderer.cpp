@@ -47,6 +47,8 @@ void OpenGLRenderer::Initialize()
 
 	esContext = new ESContext();
 
+	fontEngine = new FontEngine();
+
 
 	InitializeContext(esContext);
 
@@ -273,4 +275,9 @@ void OpenGLRenderer::ResolveCollision(CollisionComponent* col1, CollisionCompone
 	}
 
 
+}
+
+char* OpenGLRenderer::GetCharacterImage(char key)
+{
+	return fontEngine->GetCharacterImage(key);
 }

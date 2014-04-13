@@ -83,6 +83,7 @@
     <ClInclude Include="BaseComponent.h" />
     <ClInclude Include="CollisionComponent.h" />
     <ClInclude Include="DebugRectangleComponent.h" />
+    <ClInclude Include="FontEngine.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameObjectFactory.h" />
     <ClInclude Include="OpenGLRenderer.h" />
@@ -92,6 +93,8 @@
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="StaticGameObject.h" />
     <ClInclude Include="TextComponent.h" />
+    <ClInclude Include="TextComponent_BullShit.h" />
+    <ClInclude Include="TextObject.h" />
     <ClInclude Include="Texture2D.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Utilities.h" />
@@ -101,6 +104,7 @@
     <ClCompile Include="BaseComponent.cpp" />
     <ClCompile Include="CollisionComponent.cpp" />
     <ClCompile Include="DebugRectangleComponent.cpp" />
+    <ClCompile Include="FontEngine.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameObjectFactory.cpp" />
     <ClCompile Include="main.cpp" />
@@ -110,6 +114,8 @@
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="StaticGameObject.cpp" />
     <ClCompile Include="TextComponent.cpp" />
+    <ClCompile Include="TextComponent_BullShit.cpp" />
+    <ClCompile Include="TextObject.cpp" />
     <ClCompile Include="Texture2D.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="WindowsInputHandler.cpp" />

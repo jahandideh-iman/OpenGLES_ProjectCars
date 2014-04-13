@@ -16,6 +16,8 @@ void GameMain::OnCreation()
 	CreateRoad();
 	CreatePlayerCar();
 	CreateDifficultyController();
+
+	GameObjectFactory::AddTextComponent(this, "ABA")->SetPosition(Vect2(200,300));
 }
 
 void GameMain::CreateRoad()

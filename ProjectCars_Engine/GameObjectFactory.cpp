@@ -52,11 +52,11 @@ void GameObjectFactory::AddCollisionComponent(GameObject* owner, Rect collisionR
 	OpenGLRenderer::GetRenderer()->AddCollisionComponent(col);
 }
 
-TextComponent* GameObjectFactory::AddTextComponent(GameObject* owner, char* text, int zOrder)
+TextComponent_BullShit* GameObjectFactory::AddTextComponent(GameObject* owner, char* text, int zOrder)
 {
-	TextComponent* textComp = new TextComponent();
+	TextComponent_BullShit* textComp = new TextComponent_BullShit();
 
-	textComp->Load();
+	textComp->SetText(text);
 
 	textComp->SetOwner(owner);
 	owner->AddComponent(textComp);
