@@ -7,10 +7,14 @@
 #include "DifficultyController.h"
 #include "AICar.h"
 
-
+typedef void (GameObject::*ScoreCallBack) (int score);
 
 class GameMain: public GameObject
 {
+
+	//THE FUCK IS THIS?
+public:
+	int score;
 public:
 	~GameMain();
 
@@ -28,6 +32,7 @@ private:
 	Road* road;
 
 	DifficultyController* diffController;
+
 
 
 };

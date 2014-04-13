@@ -83,6 +83,7 @@
     <ClInclude Include="AICar.h" />
     <ClInclude Include="BaseCar.h" />
     <ClInclude Include="DifficultyController.h" />
+    <ClInclude Include="GameGUI.h" />
     <ClInclude Include="GameMain.h" />
     <ClInclude Include="PlayerCar.h" />
     <ClInclude Include="Road.h" />
@@ -93,6 +94,7 @@
     <ClCompile Include="AICar.cpp" />
     <ClCompile Include="BaseCar.cpp" />
     <ClCompile Include="DifficultyController.cpp" />
+    <ClCompile Include="GameGUI.cpp" />
     <ClCompile Include="GameMain.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PlayerCar.cpp" />

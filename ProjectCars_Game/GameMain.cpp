@@ -17,7 +17,11 @@ void GameMain::OnCreation()
 	CreatePlayerCar();
 	CreateDifficultyController();
 
-	GameObjectFactory::AddTextComponent(this, "ABA")->SetPosition(Vect2(200,300));
+	TextComponent_BullShit* textComp = GameObjectFactory::AddTextComponent(this, "ABA");
+	textComp->SetPosition(Vect2(200,300));
+	textComp->SetText("BB");
+
+
 }
 
 void GameMain::CreateRoad()

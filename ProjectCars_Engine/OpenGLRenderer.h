@@ -10,7 +10,8 @@
 #include "Utilities.h"
 
 
-
+class TextObject;
+class FontEngine;
 
 typedef std::vector<GameObject*> GameObjects;
 typedef std::vector<RenderableComponent*> RenderableComponents;
@@ -40,7 +41,7 @@ public:
 
 	Size GetWindowSize();
 
-	char* GetCharacterImage(char key);
+	TextObject* GetCharacterImage(char key);
 
 	
 private:

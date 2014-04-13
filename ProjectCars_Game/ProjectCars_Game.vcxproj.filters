@@ -39,6 +39,9 @@
     <ClInclude Include="DifficultyController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameGUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseCar.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DifficultyController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameGUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

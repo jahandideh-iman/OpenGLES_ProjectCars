@@ -19,6 +19,7 @@ public:
 
 	void AddTexCoord(float xPixel, float yPixel);
 	void SetOpaciyColor(float R, float G, float B);
+	void SetTextureColor(float R, float G, float B);
 
 	OpenGLKey GetKey() override;
 
@@ -30,6 +31,8 @@ private:
 	GLfloat texCoord[2] ;
 
 	GLfloat opacityColor[4];
+
+	GLfloat texColor[4];
 
 
 

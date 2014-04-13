@@ -24,6 +24,11 @@ bool SpriteComponent::Load(char* spritePath)
 	opacityColor[2] = -1.0;
 	opacityColor[3] = 0.0;
 
+	texColor[0] = 1;
+	texColor[1] = 1;
+	texColor[2] = 1;
+	texColor[3] = 1;
+
 	auto hr = this->vShader->LoadFromFile(
 		GL_VERTEX_SHADER,
 		"../Assets/EngineAssets/Sprite_VShader.txt");
@@ -67,13 +72,13 @@ bool SpriteComponent::Load(char* spritePath)
 	auto vertices = unique_ptr<GLfloat[]>(new GLfloat[this->vertexBufferSize]
 	{
 		-0.5, -0.5f, 0.0f,	//Position0
-			1.0f, 1.0f,       //TexCoord0 
+			0.0f, 1.0f,       //TexCoord0 
 			0.5f, -0.5f, 0.0f,	//Position1
-			0.0f, 1.0f,        //TexCoord1
+			1.0f, 1.0f,        //TexCoord1
 			-0.5f, 0.5f, 0.0f,	//Position2
-			1.0f, 0.0f,         //TexCoord2
+			0.0f, 0.0f,         //TexCoord2
 			0.5f, 0.5f, 0.0f,	//Position3
-			0.0f, 0.0f         //TexCoord3
+			1.0f, 0.0f         //TexCoord3
 	});
 
 	Size size = texture2D->GetSize();
@@ -154,6 +159,7 @@ void SpriteComponent::Render()
 
 	this->vShader->SetUniformVect2("uTexCoord", texCoord);
 	this->vShader->SetUniformVect4("uOpacityColor", opacityColor);
+	this->vShader->SetUniformVect4("uColor", texColor);
 
 
 
@@ -244,5 +250,14 @@ void SpriteComponent::SetOpaciyColor(float R, float G, float B)
 	opacityColor[1] = G;
 	opacityColor[2] = B;
 	opacityColor[3] = 0.0;
+
+}
+
+void SpriteComponent::SetTextureColor(float R, float G, float B)
+{
+	texColor[0] = R;
+	texColor[1] = G;
+	texColor[2] = B;
+	texColor[3] = 1;
 
 }

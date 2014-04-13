@@ -43,11 +43,9 @@ void OpenGLRenderer::Initialize()
 {
 	InitialRandomSeed();
 
-	inputHandler = new WindowsInputHandler();
+
 
 	esContext = new ESContext();
-
-	fontEngine = new FontEngine();
 
 
 	InitializeContext(esContext);
@@ -55,6 +53,11 @@ void OpenGLRenderer::Initialize()
 	esRegisterDrawFunc(esContext, DrawHelper);
 	esRegisterUpdateFunc(esContext, UpdateHelper);
 
+	fontEngine = new FontEngine();
+
+	inputHandler = new WindowsInputHandler();
+
+	
 }
 
 void OpenGLRenderer::InitializeContext(ESContext * context)
@@ -277,7 +280,7 @@ void OpenGLRenderer::ResolveCollision(CollisionComponent* col1, CollisionCompone
 
 }
 
-char* OpenGLRenderer::GetCharacterImage(char key)
+TextObject* OpenGLRenderer::GetCharacterImage(char key)
 {
 	return fontEngine->GetCharacterImage(key);
 }

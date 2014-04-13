@@ -52,10 +52,12 @@ void GameObject::ProcessMove(float dt)
 
 void GameObject::SetPosition(Vect2 _position)
 {
+
+	Vect2 offset = _position - position;
 	position = _position;
 
 	for (int i = 0; i < componets.size(); ++i)
-		componets[i]->SetPosition(_position);
+		componets[i]->SetPosition(componets[i]->GetPosition() + offset);
 }
 
 void GameObject::SetPosition(int xPos, int yPos)
