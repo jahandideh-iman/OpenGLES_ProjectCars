@@ -19,8 +19,8 @@ void GameMain::OnCreation()
 	CreatePlayerCar();
 	CreateDifficultyController();
 
-
-	score = 0;
+	StartGame();
+	
 
 
 }
@@ -46,7 +46,8 @@ void GameMain::CreateRoad()
 void GameMain::CreatePlayerCar()
 {
 	playerCar = (PlayerCar*)GameObjectFactory::CreateActor<PlayerCar>();
-	playerCar->SetPosition(400, 100);
+	playerCar->SetOnCollisionCallBack(this, CallBack(&GameMain::OnPlayerCarCollision));
+	
 }
 
 void GameMain::CreateDifficultyController()
@@ -57,4 +58,21 @@ void GameMain::CreateDifficultyController()
 void GameMain::AddScore(float amount)
 {
 	score += amount;
+}
+
+void GameMain::StartGame()
+{
+	RestartGame();
+}
+
+void GameMain::RestartGame()
+{
+	playerCar->SetPosition(400, 100);
+	diffController->Start();
+	score = 0;
+}
+
+void GameMain::OnPlayerCarCollision()
+{
+	RestartGame();
 }

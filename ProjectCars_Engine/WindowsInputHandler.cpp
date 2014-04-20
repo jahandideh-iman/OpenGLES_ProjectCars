@@ -45,12 +45,12 @@ void WindowsInputHandler::Update(float dt)
 	}
 }
 
-void WindowsInputHandler::RegisterOnPressKey(GameObject* _object, EInputKey _key, inputCallBack _callBack)
+void WindowsInputHandler::RegisterOnPressKey(GameObject* _object, EInputKey _key, CallBack _callBack)
 {
 	onPressContainer[_key].push_back(CallBackInfo(_object,_callBack));
 }
 
-void WindowsInputHandler::RegisterOnReleaseKey(GameObject* _object, EInputKey _key, inputCallBack _callBack)
+void WindowsInputHandler::RegisterOnReleaseKey(GameObject* _object, EInputKey _key, CallBack _callBack)
 {
 	onReleaseContainer[_key].push_back(CallBackInfo(_object, _callBack));
 }

@@ -203,12 +203,12 @@ void OpenGLRenderer::RemoveRenderableComponent(RenderableComponent* comp)
 	renderableComponents.erase(renderableComponents.begin() + index);
 }
 
-void OpenGLRenderer::RegisterOnPressKey(GameObject* _obj, EInputKey _key, inputCallBack _callBack)
+void OpenGLRenderer::RegisterOnPressKey(GameObject* _obj, EInputKey _key, CallBack _callBack)
 {
 	inputHandler->RegisterOnPressKey(_obj, _key, _callBack);
 }
 
-void OpenGLRenderer::RegisterOnReleaseKey(GameObject* _obj,EInputKey _key, inputCallBack _callBack)
+void OpenGLRenderer::RegisterOnReleaseKey(GameObject* _obj, EInputKey _key, CallBack _callBack)
 {
 	inputHandler->RegisterOnReleaseKey(_obj, _key, _callBack);
 }

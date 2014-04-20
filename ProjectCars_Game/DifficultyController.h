@@ -14,6 +14,9 @@ public:
 
 	void OnCreation() override;
 
+	void Start();
+	void Stop();
+
 	void AddAICar();
 
 private:

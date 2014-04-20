@@ -1,7 +1,7 @@
 #pragma once
 #include "BaseCar.h"
 
-
+typedef
 
 
 class PlayerCar :
@@ -18,10 +18,12 @@ public:
 
 	void Stop();
 	void OnCreation() override;
+	void OnCollision(GameObject* object) override;
+	void SetOnCollisionCallBack(GameObject* object, CallBack callBack);
 
 
 private:
-
+	CallBackInfo onCollisionCallBack;
 	
 
 	

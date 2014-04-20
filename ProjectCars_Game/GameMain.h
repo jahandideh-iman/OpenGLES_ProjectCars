@@ -21,7 +21,12 @@ public:
 	void Update(float dt) override;
 	void OnCreation() override;
 
+	void StartGame();
+	void RestartGame();
+
 	void AddScore(float amount);
+
+	void OnPlayerCarCollision();
 
 
 private:

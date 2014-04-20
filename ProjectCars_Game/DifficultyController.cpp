@@ -17,7 +17,6 @@ DifficultyController::~DifficultyController()
 void DifficultyController::OnCreation()
 {
 	timer = (Timer*)GameObjectFactory::CreateActor<Timer>();
-	timer->RegisterTimer(this, inputCallBack(&DifficultyController::AddAICar), 4);
 }
 
 void DifficultyController::AddAICar()
@@ -30,6 +29,16 @@ void DifficultyController::AddAICar()
 	tempCar->SetPosition(xPos, 800);
 	tempCar->SetBaseSpeed(300 + GetRandom() * 500);
 
-	timer->RegisterTimer(this, inputCallBack(&DifficultyController::AddAICar), 1 + GetRandom() * 6);
+	timer->RegisterTimer(this, CallBack(&DifficultyController::AddAICar), 1 + GetRandom() * 6);
 }
 
+void DifficultyController::Start()
+{
+	
+	timer->RegisterTimer(this, CallBack(&DifficultyController::AddAICar), 4);
+}
+
+void DifficultyController::Stop()
+{
+	timer->UnRegisterTimer(this, CallBack(&DifficultyController::AddAICar));
+}

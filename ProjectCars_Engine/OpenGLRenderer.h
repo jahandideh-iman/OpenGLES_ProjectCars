@@ -36,8 +36,8 @@ public:
 	void AddCollisionComponent(CollisionComponent* collision);
 	void RemoveComponent(BaseComponent * comp);
 
-	void RegisterOnPressKey(GameObject* _obj, EInputKey _key, inputCallBack _callBack);
-	void RegisterOnReleaseKey(GameObject* _obj, EInputKey _key, inputCallBack _callBack);
+	void RegisterOnPressKey(GameObject* _obj, EInputKey _key, CallBack _callBack);
+	void RegisterOnReleaseKey(GameObject* _obj, EInputKey _key, CallBack _callBack);
 
 	Size GetWindowSize();
 

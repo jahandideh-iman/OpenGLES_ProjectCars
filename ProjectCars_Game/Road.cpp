@@ -19,9 +19,9 @@ void Road::OnCreation()
 	currentAccel = ACCEL_UP;
 	spriteComp = GameObjectFactory::AddSpiteComponent(this, "../Assets/GameAssets/road.tga", -100);
 
-	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this, Key_Down, inputCallBack(&Road::SpeedDown));
+	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this, Key_Down, CallBack(&Road::SpeedDown));
 
-	OpenGLRenderer::GetRenderer()->RegisterOnReleaseKey(this, Key_Down, inputCallBack(&Road::ReleaseSpeedDown));
+	OpenGLRenderer::GetRenderer()->RegisterOnReleaseKey(this, Key_Down, CallBack(&Road::ReleaseSpeedDown));
 }
 
 void Road::SetSpeed(float _speed)

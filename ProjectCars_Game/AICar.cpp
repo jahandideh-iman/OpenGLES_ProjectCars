@@ -31,6 +31,8 @@ void AICar::OnCreation()
 	SetStaticFlag(false);
 	int randomSprite = GetRandom() * carSprites.size();
 	GameObjectFactory::AddSpiteComponent(this, carSprites[randomSprite] ,10)->SetOpaciyColor(1, 1, 1);
+	GameObjectFactory::AddCollisionComponent(this, Rect(128, 256), Phys_Colliding);
+	GameObjectFactory::AddDebugRectangleComponent(this, Rect(128, 256));
 }
 
 void AICar::Update(float dt)

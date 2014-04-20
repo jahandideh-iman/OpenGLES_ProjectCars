@@ -17,11 +17,11 @@ void PlayerCar::OnCreation()
 	GameObjectFactory::AddCollisionComponent(this, Rect(50, 50),Phys_Blocking);
 	GameObjectFactory::AddDebugRectangleComponent(this, Rect(50, 50));
 
-	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this,Key_Left, inputCallBack(&PlayerCar::GoLeft));
-	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this,Key_Right, inputCallBack(&PlayerCar::GoRight));
+	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this,Key_Left, CallBack(&PlayerCar::GoLeft));
+	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this,Key_Right, CallBack(&PlayerCar::GoRight));
 
-	OpenGLRenderer::GetRenderer()->RegisterOnReleaseKey(this, Key_Right, inputCallBack(&PlayerCar::Stop));
-	OpenGLRenderer::GetRenderer()->RegisterOnReleaseKey(this, Key_Left, inputCallBack(&PlayerCar::Stop));
+	OpenGLRenderer::GetRenderer()->RegisterOnReleaseKey(this, Key_Right, CallBack(&PlayerCar::Stop));
+	OpenGLRenderer::GetRenderer()->RegisterOnReleaseKey(this, Key_Left, CallBack(&PlayerCar::Stop));
 }
 
 
@@ -37,11 +37,19 @@ void PlayerCar::GoRight()
 	//std::cout << "Going Right"<<std::endl;
 }
 
+void PlayerCar::OnCollision(GameObject* object)
+{
+	CALL_MEMBER_FN(onCollisionCallBack.first, onCollisionCallBack.second)();
+}
+
 
 void PlayerCar::Stop()
 {
 	SetVelocity(0,0);
 }
 
-
-
+void PlayerCar::SetOnCollisionCallBack(GameObject* object, CallBack callBack)
+{
+	onCollisionCallBack.first = object;
+	onCollisionCallBack.second = callBack;
+}

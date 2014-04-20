@@ -16,7 +16,7 @@ void Timer::Update(float dt)
 	CheckTimers(dt);
 }
 
-void Timer::RegisterTimer(GameObject* _object, inputCallBack _callBack, float _durationInSec)
+void Timer::RegisterTimer(GameObject* _object, CallBack _callBack, float _durationInSec)
 {
 	TimerRegisterInfo registerInfo;
 
@@ -31,6 +31,18 @@ void Timer::RegisterTimer(GameObject* _object, inputCallBack _callBack, float _d
 
 }
 
+void Timer::UnRegisterTimer(GameObject* _object, CallBack _callBack)
+{
+	for (int i = 0; i < timerRegisters.size(); ++i)
+	{
+		if (timerRegisters[i].callBackInfo.first == _object \
+			&& timerRegisters[i].callBackInfo.second == _callBack)
+		{
+			timerRegisters.erase(timerRegisters.begin() + i);
+			break;
+		}
+	}
+}
 void Timer::CheckTimers(float dt)
 {
 	for (int i = 0; i < timerRegisters.size(); ++i)

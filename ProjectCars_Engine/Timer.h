@@ -19,7 +19,8 @@ public:
 
 	void Update(float dt) override;
 
-	void RegisterTimer(GameObject* _object, inputCallBack _callBack, float _durationInSec );
+	void RegisterTimer(GameObject* _object, CallBack _callBack, float _durationInSec );
+	void UnRegisterTimer(GameObject* _object, CallBack _callBack);
 
 private:
 	void CheckTimers(float dt);

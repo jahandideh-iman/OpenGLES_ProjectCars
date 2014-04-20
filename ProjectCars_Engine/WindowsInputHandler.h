@@ -27,8 +27,8 @@ public:
 
 	void Update(float dt);
 
-	void RegisterOnPressKey(GameObject* _object, EInputKey _key, inputCallBack _callBack);
-	void RegisterOnReleaseKey(GameObject* _object, EInputKey _key, inputCallBack _callBack);
+	void RegisterOnPressKey(GameObject* _object, EInputKey _key, CallBack _callBack);
+	void RegisterOnReleaseKey(GameObject* _object, EInputKey _key, CallBack _callBack);
 private:
 	void OnPressCallBackForKey(EInputKey _key);
 	void OnReleaseCallBackForKey(EInputKey _key);
