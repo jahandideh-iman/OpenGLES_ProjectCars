@@ -1,8 +1,11 @@
 #pragma once
 #include "BaseCar.h"
 
-typedef
 
+
+typedef void (GameObject::* OnCollisionCallBack)(GameObject*);
+
+typedef std::pair<GameObject*, OnCollisionCallBack> OnCollisionCallBackInfo;
 
 class PlayerCar :
 	public BaseCar
@@ -19,11 +22,11 @@ public:
 	void Stop();
 	void OnCreation() override;
 	void OnCollision(GameObject* object) override;
-	void SetOnCollisionCallBack(GameObject* object, CallBack callBack);
+	void SetOnCollisionCallBack(GameObject* object, OnCollisionCallBack callBack);
 
 
 private:
-	CallBackInfo onCollisionCallBack;
+	OnCollisionCallBackInfo onCollisionCallBack;
 	
 
 	

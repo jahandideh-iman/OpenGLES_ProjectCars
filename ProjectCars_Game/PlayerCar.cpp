@@ -14,8 +14,8 @@ void PlayerCar::OnCreation()
 {
 	SetStaticFlag(false);
 	GameObjectFactory::AddSpiteComponent(this, "../Assets/GameAssets/Car2.tga", 30)->SetOpaciyColor(1, 1, 1);
-	GameObjectFactory::AddCollisionComponent(this, Rect(50, 50),Phys_Blocking);
-	GameObjectFactory::AddDebugRectangleComponent(this, Rect(50, 50));
+	GameObjectFactory::AddCollisionComponent(this, Rect(64, 160),Phys_Blocking);
+	GameObjectFactory::AddDebugRectangleComponent(this, Rect(64, 160));
 
 	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this,Key_Left, CallBack(&PlayerCar::GoLeft));
 	OpenGLRenderer::GetRenderer()->RegisterOnPressKey(this,Key_Right, CallBack(&PlayerCar::GoRight));
@@ -39,7 +39,7 @@ void PlayerCar::GoRight()
 
 void PlayerCar::OnCollision(GameObject* object)
 {
-	CALL_MEMBER_FN(onCollisionCallBack.first, onCollisionCallBack.second)();
+	CALL_MEMBER_FN(onCollisionCallBack.first, onCollisionCallBack.second)(object);
 }
 
 
@@ -48,7 +48,7 @@ void PlayerCar::Stop()
 	SetVelocity(0,0);
 }
 
-void PlayerCar::SetOnCollisionCallBack(GameObject* object, CallBack callBack)
+void PlayerCar::SetOnCollisionCallBack(GameObject* object, OnCollisionCallBack callBack)
 {
 	onCollisionCallBack.first = object;
 	onCollisionCallBack.second = callBack;

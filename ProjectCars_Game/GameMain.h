@@ -26,7 +26,7 @@ public:
 
 	void AddScore(float amount);
 
-	void OnPlayerCarCollision();
+	void OnPlayerCarCollision(GameObject* object);
 
 
 private:

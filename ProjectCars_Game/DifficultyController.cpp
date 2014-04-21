@@ -1,6 +1,6 @@
 #include "DifficultyController.h"
 #include "GameObjectFactory.h"
-#include "AICar.h"
+
 
 
 DifficultyController::DifficultyController() : GameObject()
@@ -28,6 +28,9 @@ void DifficultyController::AddAICar()
 
 	tempCar->SetPosition(xPos, 800);
 	tempCar->SetBaseSpeed(300 + GetRandom() * 500);
+	tempCar->SetOnDestoryCallBack(this, OnDestoryCallBack(&DifficultyController::OnCarDestory));
+
+	cars.push_back(tempCar);
 
 	timer->RegisterTimer(this, CallBack(&DifficultyController::AddAICar), 1 + GetRandom() * 6);
 }
@@ -41,4 +44,28 @@ void DifficultyController::Start()
 void DifficultyController::Stop()
 {
 	timer->UnRegisterTimer(this, CallBack(&DifficultyController::AddAICar));
+}
+
+void DifficultyController::Clear()
+{
+	Stop();
+	
+	for (int i = 0; i < cars.size(); ++i)
+	{
+		cars[i]->Destroy();
+	}
+
+}
+
+void DifficultyController::OnCarDestory(AICar* car)
+{
+	for (int i = 0; i < cars.size(); ++i)
+	{
+		if (cars[i] == car)
+		{
+			cars.erase(cars.begin() + i);
+			break;
+		}
+	}
+	std::cout << "Diff" << std::endl;
 }

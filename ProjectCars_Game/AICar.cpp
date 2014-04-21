@@ -4,7 +4,20 @@
 
 Road* AICar::road = nullptr;
 
-std::vector<char*> AICar::carSprites;
+struct CarInfo
+{
+	CarInfo(char* _spritePath, Rect _collisionRect)
+	{
+		spritePath = _spritePath;
+		collisionRect = _collisionRect;
+	}
+
+	char* spritePath;
+	Rect collisionRect;
+};
+
+
+std::vector<CarInfo> carsInfo;
 
 AICar::AICar(): BaseCar()
 {
@@ -12,12 +25,12 @@ AICar::AICar(): BaseCar()
 
 void AICar::InitialCarSprites()
 {
-	carSprites.clear();
-	carSprites.push_back("../Assets/GameAssets/Car4.tga");
-	carSprites.push_back("../Assets/GameAssets/Car5.tga");
-	carSprites.push_back("../Assets/GameAssets/Car6.tga");
-	carSprites.push_back("../Assets/GameAssets/Car7.tga");
-	carSprites.push_back("../Assets/GameAssets/Car9.tga");
+	carsInfo.clear();
+	carsInfo.push_back(CarInfo("../Assets/GameAssets/Car4.tga",Rect(72,244)));
+	carsInfo.push_back(CarInfo("../Assets/GameAssets/Car5.tga",Rect(92,231)));
+	carsInfo.push_back(CarInfo("../Assets/GameAssets/Car6.tga",Rect(84,221)));
+	carsInfo.push_back(CarInfo("../Assets/GameAssets/Car7.tga",Rect(83,210)));
+	carsInfo.push_back(CarInfo("../Assets/GameAssets/Car9.tga",Rect(71,184)));
 }
 
 
@@ -29,10 +42,11 @@ AICar::~AICar()
 void AICar::OnCreation()
 {
 	SetStaticFlag(false);
-	int randomSprite = GetRandom() * carSprites.size();
-	GameObjectFactory::AddSpiteComponent(this, carSprites[randomSprite] ,10)->SetOpaciyColor(1, 1, 1);
-	GameObjectFactory::AddCollisionComponent(this, Rect(128, 256), Phys_Colliding);
-	GameObjectFactory::AddDebugRectangleComponent(this, Rect(128, 256));
+	int carIndex = GetRandom() * carsInfo.size();
+
+	GameObjectFactory::AddSpiteComponent(this, carsInfo[carIndex].spritePath, 10)->SetOpaciyColor(1, 1, 1);
+	GameObjectFactory::AddCollisionComponent(this, carsInfo[carIndex].collisionRect, Phys_Colliding);
+	GameObjectFactory::AddDebugRectangleComponent(this, carsInfo[carIndex].collisionRect);
 }
 
 void AICar::Update(float dt)
@@ -52,4 +66,16 @@ void AICar::CheckOutOfScreen()
 {
 	if (GetPosition().Y < -200 || GetPosition().Y > 900)
 		Destroy();
+}
+
+void AICar::SetOnDestoryCallBack(GameObject* object, OnDestoryCallBack callBack)
+{
+	onDestroyCallBack.first = object;
+	onDestroyCallBack.second = callBack;
+}
+
+void AICar::OnDestroy()
+{
+	BaseCar::OnDestroy();
+	CALL_MEMBER_FN(onDestroyCallBack.first, onDestroyCallBack.second)(this);
 }

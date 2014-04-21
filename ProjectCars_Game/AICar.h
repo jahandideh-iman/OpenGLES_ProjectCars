@@ -3,10 +3,11 @@
 #include "Road.h"
 #include <vector>
 
+class AICar;
 
+typedef void (GameObject::* OnDestoryCallBack)(AICar* );
 
-
-
+typedef std::pair<GameObject*, OnDestoryCallBack> OnDestoryCallBackInfo;
 
 class AICar :
 	public BaseCar
@@ -16,12 +17,18 @@ public:
 	~AICar();
 	void Update(float dt) override;
 	void OnCreation() override;
+	void SetBaseSpeed(float _baseSpeed);
+
+	void SetOnDestoryCallBack(GameObject* object, OnDestoryCallBack callBack);
 
 	static void InitialCarSprites();
 
 public:
 	static Road* road;
-	void SetBaseSpeed(float _baseSpeed);
+	
+protected:
+	void OnDestroy() override;
+
 private:
 	void CheckOutOfScreen();
 	
@@ -29,6 +36,8 @@ private:
 
 private:
 	float baseSpeed = 0;
+
+	OnDestoryCallBackInfo onDestroyCallBack;
 };
 
 

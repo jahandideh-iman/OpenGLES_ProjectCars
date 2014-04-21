@@ -31,6 +31,7 @@ void GameObjectFactory::AddDebugRectangleComponent(GameObject* owner, Rect rec)
 	DebugRectangleComponent* rectangle = new DebugRectangleComponent(rec);
 	rectangle->Load(rec.GetSize());
 	rectangle->SetOwner(owner);
+	rectangle->SetZOrder(2000);
 	owner->AddComponent(rectangle);
 
 	rectangle->SetPosition(owner->GetPosition());
@@ -72,10 +73,7 @@ TextComponent_BullShit* GameObjectFactory::AddTextComponent(GameObject* owner, c
 
 void GameObjectFactory::DestroyActor(GameObject* actor)
 {
-	OpenGLRenderer::GetRenderer()->RemoveGameObject(actor);
-	actor->OnDestroy();
-
-	delete actor;
+	OpenGLRenderer::GetRenderer()->AddObjectToDestroyQueue(actor);
 
 }
 

@@ -25,12 +25,16 @@ void GameObject::Update(float dt)
 
 void GameObject::Destroy()
 {
-	while (!componets.empty())
-		componets[0]->Destroy();
-
 	assert(destroyCallBack != nullptr);
 	destroyCallBack(this);
 	
+}
+
+void GameObject::DestroyForReal()
+{
+	while (!componets.empty())
+		componets[0]->Destroy();
+	OnDestroy();
 }
 
 void GameObject::OnDestroy()

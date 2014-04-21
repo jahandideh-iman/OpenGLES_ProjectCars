@@ -25,6 +25,8 @@ public:
 
 	float GetSpeed();
 
+	void Reset();
+
 
 	
 private:

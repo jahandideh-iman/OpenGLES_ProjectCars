@@ -5,6 +5,7 @@
 #include "Utilities.h"
 
 class GameObjectFactory;
+class OpenGLRenderer;
 
 
 typedef void (GameObject::* CallBack)();
@@ -20,6 +21,7 @@ class GameObject
 	typedef void(*DestroyCallBack)(GameObject*);
 
 	friend GameObjectFactory;
+	friend OpenGLRenderer;
 public:
 	
 	virtual ~GameObject();
@@ -52,6 +54,8 @@ private:
 	void RemoveComponent(BaseComponent* comp);
 
 	void SetDestroyCallBack(DestroyCallBack _destroyCallBack);
+
+	void DestroyForReal();
 
 	
 	

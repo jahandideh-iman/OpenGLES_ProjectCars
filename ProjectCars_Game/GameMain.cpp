@@ -46,7 +46,7 @@ void GameMain::CreateRoad()
 void GameMain::CreatePlayerCar()
 {
 	playerCar = (PlayerCar*)GameObjectFactory::CreateActor<PlayerCar>();
-	playerCar->SetOnCollisionCallBack(this, CallBack(&GameMain::OnPlayerCarCollision));
+	playerCar->SetOnCollisionCallBack(this, OnCollisionCallBack(&GameMain::OnPlayerCarCollision));
 	
 }
 
@@ -68,11 +68,14 @@ void GameMain::StartGame()
 void GameMain::RestartGame()
 {
 	playerCar->SetPosition(400, 100);
+	diffController->Clear();
 	diffController->Start();
+	road->Reset();
 	score = 0;
 }
 
-void GameMain::OnPlayerCarCollision()
+void GameMain::OnPlayerCarCollision(GameObject* object)
 {
-	RestartGame();
+	if (dynamic_cast<AICar*>(object)!=nullptr)
+		RestartGame();
 }

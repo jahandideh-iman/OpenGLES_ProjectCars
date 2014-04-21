@@ -17,6 +17,8 @@ typedef std::vector<GameObject*> GameObjects;
 typedef std::vector<RenderableComponent*> RenderableComponents;
 typedef std::vector<CollisionComponent*> CollisionComponents;
 
+typedef std::vector<GameObject*> DestoryQueue;
+
 class OpenGLRenderer
 {
 public:
@@ -41,6 +43,8 @@ public:
 
 	Size GetWindowSize();
 
+	void AddObjectToDestroyQueue(GameObject* object);
+
 	TextObject* GetCharacterImage(char key);
 
 	
@@ -59,6 +63,8 @@ private:
 	void RemoveRenderableComponent(RenderableComponent* comp);
 	void RemoveCollisionComponent(CollisionComponent* comp);
 
+	void ProcessDestroyQueue();
+
 	void Release();
 
 private:
@@ -73,5 +79,7 @@ private:
 	WindowsInputHandler* inputHandler;
 
 	FontEngine * fontEngine;
+
+	DestoryQueue destoryQueue;
 };
 

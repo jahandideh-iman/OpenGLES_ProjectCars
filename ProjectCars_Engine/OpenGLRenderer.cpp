@@ -93,8 +93,28 @@ void OpenGLRenderer::Update(ESContext* contex, float dt)
 		gameObjects[i]->Update(dt);
 
 	CheckCollisions();
+	ProcessDestroyQueue();
 }
 
+void OpenGLRenderer::ProcessDestroyQueue()
+{
+	while (!destoryQueue.empty())
+	{
+		GameObject* actor = destoryQueue[0];
+
+		RemoveGameObject(actor);
+		actor->DestroyForReal();
+
+		destoryQueue.pop_back();
+
+		delete actor;
+	}
+}
+
+void OpenGLRenderer::AddObjectToDestroyQueue(GameObject* object)
+{
+	destoryQueue.push_back(object);
+}
 
 void OpenGLRenderer::Release()
 {
