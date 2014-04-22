@@ -46,7 +46,7 @@ void AICar::OnCreation()
 
 	GameObjectFactory::AddSpiteComponent(this, carsInfo[carIndex].spritePath, 10)->SetOpaciyColor(1, 1, 1);
 	GameObjectFactory::AddCollisionComponent(this, carsInfo[carIndex].collisionRect, Phys_Colliding);
-	GameObjectFactory::AddDebugRectangleComponent(this, carsInfo[carIndex].collisionRect);
+	//GameObjectFactory::AddDebugRectangleComponent(this, carsInfo[carIndex].collisionRect);
 }
 
 void AICar::Update(float dt)
@@ -60,6 +60,11 @@ void AICar::Update(float dt)
 void AICar::SetBaseSpeed(float _baseSpeed)
 {
 	baseSpeed = _baseSpeed;
+}
+
+float AICar::GetBaseSpeed()
+{
+	return baseSpeed;
 }
 
 void AICar::CheckOutOfScreen()

@@ -1,0 +1,26 @@
+﻿Build started 4/22/2014 2:17:44 PM.
+     1>Project "E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\ProjectCars_Game\ProjectCars_Game.vcxproj" on node 2 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\Release\ProjectCars_Game.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\\ProjectCars_Engine\ThirdParty\Angel\lib" /LIBPATH:"E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\\ProjectCars_Engine\ThirdParty\FreeType\lib" freetype.lib freetypeMT_D.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\Release\ProjectCars_Game.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\Release\ProjectCars_Game.lib" /MACHINE:X86 /SAFESEH Release\AICar.obj
+         Release\BaseCar.obj
+         Release\DifficultyController.obj
+         Release\GameGUI.obj
+         Release\GameMain.obj
+         Release\Main.obj
+         Release\PlayerCar.obj
+         Release\Road.obj
+         Release\SideBlocker.obj
+         Release\WorkInProgressGUI.obj
+         "E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\Release\ProjectCars_Engine.lib"
+     1>LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+         Generating code
+         Finished generating code
+     1>es_util.lib(esUtil.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'es_util.lib(esUtil.obj)' or at 'E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\Release\vc120.pdb'; linking object as if no debug info
+     1>es_util.lib(esUtil_win32.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'es_util.lib(esUtil_win32.obj)' or at 'E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\Release\vc120.pdb'; linking object as if no debug info
+     1>es_util.lib(esUtil_TGA.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'es_util.lib(esUtil_TGA.obj)' or at 'E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\Release\vc120.pdb'; linking object as if no debug info
+         ProjectCars_Game.vcxproj -> E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\Release\ProjectCars_Game.exe
+     1>Done Building Project "E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\ProjectCars_Game\ProjectCars_Game.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.86

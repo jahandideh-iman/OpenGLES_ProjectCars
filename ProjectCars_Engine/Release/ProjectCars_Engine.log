@@ -1,0 +1,27 @@
+﻿Build started 4/22/2014 2:17:38 PM.
+     1>Project "E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\ProjectCars_Engine\ProjectCars_Engine.vcxproj" on node 2 (Build target(s)).
+     1>Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\Release\ProjectCars_Engine.lib" /NOLOGO /LTCG Release\BaseComponent.obj
+         Release\CollisionComponent.obj
+         Release\DebugRectangleComponent.obj
+         Release\FontEngine.obj
+         Release\GameObject.obj
+         Release\GameObjectFactory.obj
+         Release\main.obj
+         Release\OpenGLRenderer.obj
+         Release\RenderableComponent.obj
+         Release\Shader.obj
+         Release\SpriteComponent.obj
+         Release\StaticGameObject.obj
+         Release\TextComponent.obj
+         Release\TextComponent_BullShit.obj
+         Release\TextObject.obj
+         Release\Texture2D.obj
+         Release\Timer.obj
+         Release\WindowsInputHandler.obj
+         ProjectCars_Engine.vcxproj -> E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\Release\ProjectCars_Engine.lib
+     1>Done Building Project "E:\Projects\Game\Education\OpenGL\Project Cars\ProjectCars\ProjectCars_Engine\ProjectCars_Engine.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.02

@@ -9,6 +9,8 @@
 
 #include "Utilities.h"
 
+#include <set>
+
 
 class TextObject;
 class FontEngine;
@@ -17,7 +19,7 @@ typedef std::vector<GameObject*> GameObjects;
 typedef std::vector<RenderableComponent*> RenderableComponents;
 typedef std::vector<CollisionComponent*> CollisionComponents;
 
-typedef std::vector<GameObject*> DestoryQueue;
+typedef std::set<GameObject*> DestoryQueue;
 
 class OpenGLRenderer
 {
@@ -67,6 +69,7 @@ private:
 
 	void Release();
 
+
 private:
 
 	static OpenGLRenderer * renderer;
@@ -81,5 +84,7 @@ private:
 	FontEngine * fontEngine;
 
 	DestoryQueue destoryQueue;
+
+	bool bMustExit = false;
 };
 

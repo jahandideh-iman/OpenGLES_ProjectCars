@@ -18,6 +18,7 @@ public:
 	void Update(float dt) override;
 	void OnCreation() override;
 	void SetBaseSpeed(float _baseSpeed);
+	float GetBaseSpeed();
 
 	void SetOnDestoryCallBack(GameObject* object, OnDestoryCallBack callBack);
 

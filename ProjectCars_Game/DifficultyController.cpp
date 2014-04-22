@@ -19,31 +19,63 @@ void DifficultyController::OnCreation()
 	timer = (Timer*)GameObjectFactory::CreateActor<Timer>();
 }
 
-void DifficultyController::AddAICar()
+void DifficultyController::AddGameCar()
 {
+	int lane = GetAProperLane();
+	
+
+	GameCar* gameCar = CreateGameCar(lane);
+	
+
+	cars.push_back(gameCar);
+
+	timer->RegisterTimer(this, CallBack(&DifficultyController::AddGameCar), 1 + GetRandom() * 1);
+}
+
+int DifficultyController::GetAProperLane()
+{
+	int lane = GetRandom() * laneCount;
+
+	return lane;
+}
+
+GameCar* DifficultyController::CreateGameCar(unsigned int lane)
+{
+	int xPos = laneXPosition[lane];
 	AICar* tempCar = (AICar*)GameObjectFactory::CreateActor<AICar>();
 
-	int xPos = spawnXPositions[int (GetRandom() * spawnXPositionsCount)];
-	std::cout << xPos << std::endl;
-
 	tempCar->SetPosition(xPos, 800);
-	tempCar->SetBaseSpeed(300 + GetRandom() * 500);
+	tempCar->SetBaseSpeed(GetMinSpeedForLane(lane) + abs(GetMinSpeedForLane(lane) - MAX_GAME_CAR_SPEED) *GetRandom());
+
+	std::cout << "BaseSpeed " << tempCar->GetBaseSpeed() << std::endl;
+
 	tempCar->SetOnDestoryCallBack(this, OnDestoryCallBack(&DifficultyController::OnCarDestory));
 
-	cars.push_back(tempCar);
+	return new GameCar(tempCar, lane);
+}
 
-	timer->RegisterTimer(this, CallBack(&DifficultyController::AddAICar), 1 + GetRandom() * 6);
+float DifficultyController::GetMinSpeedForLane(unsigned int lane)
+{
+	float currentMaxSpeedInLane = 0;
+	for (int i = 0; i < cars.size(); ++i)
+	{
+		if (cars[i]->lane = lane
+			&& cars[i]->car->GetBaseSpeed() > currentMaxSpeedInLane)
+			currentMaxSpeedInLane = cars[i]->car->GetBaseSpeed();
+	}
+
+	return currentMaxSpeedInLane;
 }
 
 void DifficultyController::Start()
 {
 	
-	timer->RegisterTimer(this, CallBack(&DifficultyController::AddAICar), 4);
+	timer->RegisterTimer(this, CallBack(&DifficultyController::AddGameCar), 4);
 }
 
 void DifficultyController::Stop()
 {
-	timer->UnRegisterTimer(this, CallBack(&DifficultyController::AddAICar));
+	timer->UnRegisterTimer(this, CallBack(&DifficultyController::AddGameCar));
 }
 
 void DifficultyController::Clear()
@@ -52,7 +84,7 @@ void DifficultyController::Clear()
 	
 	for (int i = 0; i < cars.size(); ++i)
 	{
-		cars[i]->Destroy();
+		cars[i]->car->Destroy();
 	}
 
 }
@@ -61,7 +93,7 @@ void DifficultyController::OnCarDestory(AICar* car)
 {
 	for (int i = 0; i < cars.size(); ++i)
 	{
-		if (cars[i] == car)
+		if (cars[i]->car == car)
 		{
 			cars.erase(cars.begin() + i);
 			break;

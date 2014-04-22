@@ -87,6 +87,8 @@ void OpenGLRenderer::Render(ESContext* context)
 
 void OpenGLRenderer::Update(ESContext* contex, float dt)
 {
+	if (bMustExit)
+		return;
 	//std::cout << "delta time " << dt << std::endl;
 	inputHandler->Update(dt);
 	for (int i = 0; i < gameObjects.size(); ++i)
@@ -100,12 +102,12 @@ void OpenGLRenderer::ProcessDestroyQueue()
 {
 	while (!destoryQueue.empty())
 	{
-		GameObject* actor = destoryQueue[0];
+		GameObject* actor = *destoryQueue.begin();
 
 		RemoveGameObject(actor);
 		actor->DestroyForReal();
 
-		destoryQueue.pop_back();
+		destoryQueue.erase(actor);
 
 		delete actor;
 	}
@@ -113,7 +115,7 @@ void OpenGLRenderer::ProcessDestroyQueue()
 
 void OpenGLRenderer::AddObjectToDestroyQueue(GameObject* object)
 {
-	destoryQueue.push_back(object);
+	destoryQueue.emplace(object);
 }
 
 void OpenGLRenderer::Release()
@@ -304,3 +306,4 @@ TextObject* OpenGLRenderer::GetCharacterImage(char key)
 {
 	return fontEngine->GetCharacterImage(key);
 }
+
